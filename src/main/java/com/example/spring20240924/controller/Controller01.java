@@ -18,5 +18,9 @@ public class Controller01 {
 
     // localhost:8080/main1/some1
     // 실행되는 메소드 작성
-    
+    @RequestMapping("/main1/some1")
+    public void method3() {
+        System.out.println("Controller01.method3");
+    }
+
 }
