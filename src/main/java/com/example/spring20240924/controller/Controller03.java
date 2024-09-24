@@ -51,13 +51,25 @@ public class Controller03 {
     // /main3/sub7?address=seoul
     //  : seoul 출력
     //  @RequestParam 어노테이션과 value 속성의 값 명시
+    @RequestMapping("/main3/sub7")
+    public void method7(@RequestParam("address") String address) {
+        System.out.println("address = " + address);
+    }
 
     // /main3/sub8?address=seoul
     //  : seoul 출력
     // @RequestParam 어노테이션 명시 (단, value 속성값 생략)
+    @RequestMapping("/main3/sub8")
+    public void method8(@RequestParam String address) {
+        System.out.println("address = " + address);
+    }
 
     // /main3/sub9?address=seoul
     //  : seoul 출력
     // @RequestParam 어노테이션 생략
+    @RequestMapping("/main3/sub9")
+    public void method9(String address) {
+        System.out.println("address = " + address);
+    }
 
 }
