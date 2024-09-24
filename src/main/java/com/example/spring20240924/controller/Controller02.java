@@ -62,5 +62,41 @@ public class Controller02 {
     }
 
     // /main2/sub6?hobby=축구&hobby=야구&hobby=농구&name=흥민
-    
+    @RequestMapping("/main2/sub6")
+    public void method6(WebRequest request) {
+        String[] hobbies = request.getParameterValues("hobby");
+        System.out.println("hobby = " + hobbies[0]);
+        System.out.println("hobby = " + hobbies[1]);
+        System.out.println("hobby = " + hobbies[2]);
+        String name = request.getParameter("name");
+        System.out.println("name = " + name);
+    }
+
+    // 적절한 url을 완성해서 요청보내기
+    // /main2/sub7?address=seoul&email=gmail&email=yahoo
+    @RequestMapping("/main2/sub7")
+    public void method7(WebRequest request) {
+        String address = request.getParameter("address");
+        System.out.println("address = " + address);
+        String[] emails = request.getParameterValues("email");
+        System.out.println("emails[0] = " + emails[0]);
+        System.out.println("emails[1] = " + emails[1]);
+    }
+
+    // ?name=son&age=30&point=9.8
+    // request parameter는 모두 String
+    // 필요하면 다른 타입으로 변환해서 사용해야함
+    @RequestMapping("/main2/sub8")
+    public void method8(WebRequest request) {
+        String name = request.getParameter("name");
+        System.out.println("name = " + name);
+
+        String age = request.getParameter("age");
+        Integer ageInt = Integer.parseInt(age);
+        System.out.println("age = " + ageInt);
+
+        String point = request.getParameter("point");
+        Double pointDouble = Double.parseDouble(point);
+        System.out.println("pointDouble = " + pointDouble);
+    }
 }
