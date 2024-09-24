@@ -38,6 +38,29 @@ public class Controller02 {
         System.out.println("email = " + email);
     }
 
-    // /main2/sub3?info=java&location=강남&country=한국
+    // /main2/sub4?info=java&location=강남&country=한국
     // 메소드 작성
+    @RequestMapping("/main2/sub4")
+    public void sub4(WebRequest request){
+        String info = request.getParameter("info");
+        System.out.println("info = " + info);
+        String location = request.getParameter("location");
+        System.out.println("location = " + location);
+        String country = request.getParameter("country");
+        System.out.println("country = " + country);
+    }
+
+    // /main2/sub5?param1=value1&param2=value2&param2=value3
+    @RequestMapping("/main2/sub5")
+    public void sub5(WebRequest request){
+        String param1 = request.getParameter("param1");
+        String[] param2s = request.getParameterValues("param2");
+
+        System.out.println("param1 = " + param1);
+        System.out.println("param2s = " + param2s[0]);
+        System.out.println("param2s = " + param2s[1]);
+    }
+
+    // /main2/sub6?hobby=축구&hobby=야구&hobby=농구&name=흥민
+    
 }
