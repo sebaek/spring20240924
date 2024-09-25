@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 @Controller
@@ -80,4 +81,18 @@ public class Controller05 {
     }
 
     // /main5/sub8?hobby=축구&hobby=야구&hobby=농구&name=강인&address=서울&point=7.1234&age=55
+    @RequestMapping("sub8")
+    public void method8(String[] hobby,
+                        String name,
+                        String address,
+                        Double point,
+                        Integer age) {
+        System.out.println("hobby = " + Arrays.toString(hobby));
+        System.out.println("name = " + name);
+        System.out.println("address = " + address);
+        System.out.println("point = " + point);
+        System.out.println("age = " + age);
+    }
+
+
 }
