@@ -97,6 +97,17 @@ public class Controller08 {
         return null;
     }
 
+    @RequestMapping("sub8")
+    public String sub8(Model model) {
+        model.addAttribute("students", List.of("문성", "몽규", "명보"));
+        model.addAttribute("num", 0);
+        model.addAttribute("index", "1");
+        model.addAttribute("point", "2");
+
+        return null;
+    }
+
+
 
 
 
