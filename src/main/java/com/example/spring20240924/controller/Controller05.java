@@ -50,4 +50,21 @@ public class Controller05 {
         System.out.println("name = " + name);
         System.out.println("address = " + address);
     }
+
+    // /main5/sub6?name=손&age=33&score=3.14&num=55&point=99.1234
+    // /main5/sub6?age=33&score=3.14&num=55&point=99.1234
+    // /main5/sub6?score=3.14&num=55&point=99.1234
+    // /main5/sub6?score=3.14&point=99.1234&age=3
+    @RequestMapping("sub6")
+    public void sub6(String name,
+                     int age,
+                     double score,
+                     Integer num,
+                     Double point) {
+        System.out.println("name = " + name);
+        System.out.println("age = " + age);
+        System.out.println("score = " + score);
+        System.out.println("num = " + num);
+        System.out.println("point = " + point);
+    }
 }
