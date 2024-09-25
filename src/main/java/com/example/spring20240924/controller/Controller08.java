@@ -107,6 +107,21 @@ public class Controller08 {
         return null;
     }
 
+    @RequestMapping("sub9")
+    public String sub9(Model model) {
+        model.addAttribute("people", List.of("donald", "harris", "biden", "son"));
+
+        model.addAttribute("addresses", List.of("ny", "la"));
+
+        model.addAttribute("zero", "0");
+        model.addAttribute("one", "1");
+        model.addAttribute("second", 1);
+        model.addAttribute("next", "2");
+
+        return null;
+
+    }
+
 
 
 
