@@ -67,6 +67,36 @@ public class Controller08 {
         return null;
     }
 
+    // /main8/sub5
+    @RequestMapping("sub5")
+    public String sub5(Model model) {
+        model.addAttribute("names", new String[] {"손흥민", "홍명보"});
+        model.addAttribute("classes", new String[] {"java", "react"});
+        model.addAttribute("address", "신촌");
+
+
+        return null;
+    }
+    
+    @RequestMapping("sub6")
+    public String sub6(Model model) {
+        // attribute에 List 넣기
+        model.addAttribute("names", List.of("명보", "몽규", "흥민"));
+
+        return null;
+    }
+
+    @RequestMapping("sub7")
+    public String sub7(Model model) {
+        List<String> jobs = List.of("의사", "개발자", "강사");
+        List<Integer> points = List.of(4, 2, 1);
+
+        model.addAttribute("jobs", jobs);
+        model.addAttribute("pointList", points);
+
+        return null;
+    }
+
 
 
 
