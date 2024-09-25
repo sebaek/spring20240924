@@ -69,6 +69,14 @@ public class Controller06 {
         return "/main6/sub5";
     }
 
+    @RequestMapping("sub6")
+    public String  method6() {
+
+        // return이 null이면 요청경로와 같은 view로 결정
+        // /WEB-INF/view/main6/sub6.jsp
+        return null;
+    }
+
     @RequestMapping("sub7")
     public void method7() {
 
@@ -80,4 +88,6 @@ public class Controller06 {
     // /WEB-INF/view/main6/sub8.jsp 가 응답되도록
 
     // 8번째 메소드와, jsp를 작성해보세요.
+    @RequestMapping("sub8")
+    public void method8() {}
 }
