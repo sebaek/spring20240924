@@ -20,8 +20,6 @@ public class Controller07 {
     @RequestMapping("sub2")
     public void sub2(Model model) {
         model.addAttribute("person", "이강인");
-
-
     }
 
 }
