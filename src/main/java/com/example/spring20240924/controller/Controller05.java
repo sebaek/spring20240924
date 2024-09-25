@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Arrays;
+
 @Controller
 @RequestMapping("main5")
 public class Controller05 {
@@ -67,4 +69,15 @@ public class Controller05 {
         System.out.println("num = " + num);
         System.out.println("point = " + point);
     }
+
+    // /main5/sub7
+    // /main5/sub7?email=gmail
+    // /main5/sub7?email=gmail&email=yahoo
+    // /main5/sub7?email=gmail&email=yahoo&email=daum
+    @RequestMapping("sub7")
+    public void method7(String[] email) {
+        System.out.println("email = " + Arrays.toString(email));
+    }
+
+    // /main5/sub8?hobby=축구&hobby=야구&hobby=농구&name=강인&address=서울&point=7.1234&age=55
 }
