@@ -1,6 +1,7 @@
 package com.example.spring20240924.controller;
 
 import com.example.spring20240924.dto.c11.Car;
+import com.example.spring20240924.dto.c11.Person;
 import com.example.spring20240924.dto.c11.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -91,6 +92,17 @@ public class Controller11 {
                 new Car("model s", 4000, true),
                 new Car("truck", 3000, false)
         ));
+
+        return null;
+
+    }
+
+    @RequestMapping("sub7")
+    public String sub7(Model model) {
+        // JavaBeans 내의 List
+        model.addAttribute("person",
+                new Person("donald", "trump", 77, List.of("game", "soccer", "golf")));
+
 
         return null;
 
