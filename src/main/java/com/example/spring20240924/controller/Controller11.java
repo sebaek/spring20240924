@@ -29,4 +29,42 @@ public class Controller11 {
 
         return null;
     }
+
+    @RequestMapping("sub2")
+    public String sub2(Model model) {
+        model.addAttribute("list1", List.of(
+                Map.of("team", "자이언츠",
+                        "price", 10000,
+                        "number", 4567
+                ),
+                Map.of("location", "제주",
+                        "name", "바이든"),
+                Map.of("company", "삼성")));
+        return null;
+    }
+
+    @RequestMapping("sub3")
+    public String sub3(Model model) {
+
+        model.addAttribute("data", Map.of(
+                "list1", List.of("tesla", "volvo", "kia"),
+                "languages", List.of("java", "js", "c++", "python")
+        ));
+
+        return null;
+
+    }
+
+    @RequestMapping("sub4")
+    public String sub4(Model model) {
+
+        model.addAttribute("car",
+                Map.of("hyundai",
+                        List.of("소나타", "아반떼", "제네시스")));
+        model.addAttribute("student",
+                Map.of("son",
+                        List.of(80, 90, 99)));
+
+        return null;
+    }
 }
