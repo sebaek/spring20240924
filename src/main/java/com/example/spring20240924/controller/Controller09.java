@@ -39,4 +39,26 @@ public class Controller09 {
 
         return null;
     }
+
+    @RequestMapping("sub4")
+    public String sub4(Model model) {
+        model.addAttribute("student", Map.of(
+                "name", "일론 머스크",
+                "score", 8.12345,
+                "집 주소", "텍사스",
+                "student number", 3456
+        ));
+        model.addAttribute("player", Map.of(
+                "email", "yahoo",
+                "address", "london",
+                "team", "man city"
+        ));
+        model.addAttribute("home", Map.of(
+                "address", "신촌",
+                "location", "마포",
+                "price", 3000
+        ));
+
+        return null;
+    }
 }

@@ -8,7 +8,7 @@
 <p>${student.name}</p>
 <p>${student.score}</p>
 <p>${student["집 주소"]}</p>
-<p>${student.["student number"]}</p>
+<p>${student["student number"]}</p>
 <p>${player.email}</p>
 <p>${player.address}</p>
 <p>${player.team}</p>
