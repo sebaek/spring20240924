@@ -39,4 +39,14 @@ public class Controller12 {
 
         return null;
     }
+
+    @RequestMapping("sub3")
+    public String sub3(Model model) {
+
+        model.addAttribute("num1", 99);
+        model.addAttribute("num2", 88);
+        model.addAttribute("num3", 77);
+
+        return null;
+    }
 }
