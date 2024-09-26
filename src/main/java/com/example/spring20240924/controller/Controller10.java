@@ -2,6 +2,7 @@ package com.example.spring20240924.controller;
 
 import com.example.spring20240924.dto.c10.Car;
 import com.example.spring20240924.dto.c10.Computer;
+import com.example.spring20240924.dto.c10.Person;
 import com.example.spring20240924.dto.c10.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,5 +57,18 @@ public class Controller10 {
 
         return null;
 
+    }
+
+    @RequestMapping("sub4")
+    public String sub4(Model model) {
+        Person p = new Person();
+        p.setAddress("신촌");
+        p.setEmail("gmail");
+        p.setAge(44);
+        p.setMarried(true);
+
+        model.addAttribute("person", p);
+
+        return null;
     }
 }
