@@ -1,5 +1,6 @@
 package com.example.spring20240924.controller;
 
+import com.example.spring20240924.dto.c10.Car;
 import com.example.spring20240924.dto.c10.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,24 @@ public class Controller10 {
         obj.setEmail("donald@gmail.com");
 
         model.addAttribute("student", obj);
+        return null;
+    }
+
+    @RequestMapping("sub2")
+    public String sub2(Model model) {
+        Car car1 = new Car();
+        car1.setModel("genesis");
+        car1.setCompany("hyundai");
+        car1.setPrice(500);
+
+        Car car2 = new Car();
+        car2.setModel("x");
+        car2.setCompany("tesla");
+        car2.setPrice(700);
+
+        model.addAttribute("hCar", car1);
+        model.addAttribute("tCar", car2);
+
         return null;
     }
 }
