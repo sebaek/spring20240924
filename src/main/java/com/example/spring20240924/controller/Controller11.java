@@ -112,7 +112,7 @@ public class Controller11 {
     @RequestMapping("sub8")
     public String sub8(Model model) {
         model.addAttribute("player",
-                new Player("donal", "trump", "yahoo", true,
+                new Player("donald", "trump", "yahoo", true,
                         List.of("토트넘", "맨시티", "다저스"),
                         List.of(3.14, 5.12, 6.34, 7.56)));
         return null;
