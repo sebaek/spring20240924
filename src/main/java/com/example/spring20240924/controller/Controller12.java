@@ -2,6 +2,7 @@ package com.example.spring20240924.controller;
 
 import com.example.spring20240924.dto.c12.Book;
 import com.example.spring20240924.dto.c12.Car;
+import com.example.spring20240924.dto.c12.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,6 +57,18 @@ public class Controller12 {
         model.addAttribute("attr5", null);
 //        model.addAttribute("attr6", null);
 
+
+        return null;
+    }
+
+    @RequestMapping("sub4")
+    public String sub4(Model model) {
+        model.addAttribute("productList", List.of(
+                new Product(3, "컴퓨터", 500, 1, "인텔 컴퓨터"),
+                new Product(6, "스마트폰", 600, 3, "아이폰"),
+                new Product(7, "자동차", 700, 0, "테슬라"),
+                new Product(12, "모니터", 200, 6, "LG FHD")
+        ));
 
         return null;
     }
