@@ -6,7 +6,7 @@
 <body>
 <%--
 javaBeans의 get 메소드 사용시
-get빼고 앞글자를 소문자, () 제거 : property (속성)
+get빼고 앞글자를 소문자, () 제거 : property (속성) (주로 필드명과 같음)
 --%>
 
 <p>${student.id}</p>

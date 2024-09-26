@@ -1,4 +1,4 @@
-package com.example.spring20240924.controller;
+package com.example.spring20240924.dto.c10;
 
 public class Student {
     private Integer id;
