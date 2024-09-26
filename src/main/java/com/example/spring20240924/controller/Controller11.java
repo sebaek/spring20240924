@@ -1,5 +1,6 @@
 package com.example.spring20240924.controller;
 
+import com.example.spring20240924.dto.c11.Car;
 import com.example.spring20240924.dto.c11.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -79,6 +80,18 @@ public class Controller11 {
                 new Student(10, "otani", 22, 66.11, "naver"));
 
         model.addAttribute("students", students);
+        return null;
+
+    }
+
+    @RequestMapping("sub6")
+    public String sub6(Model model) {
+        model.addAttribute("carList", List.of(
+                new Car("model x", 5000, false),
+                new Car("model s", 4000, true),
+                new Car("truck", 3000, false)
+        ));
+
         return null;
 
     }
