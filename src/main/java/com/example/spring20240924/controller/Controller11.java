@@ -1,5 +1,6 @@
 package com.example.spring20240924.controller;
 
+import com.example.spring20240924.dto.c11.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -66,5 +67,19 @@ public class Controller11 {
                         List.of(80, 90, 99)));
 
         return null;
+    }
+
+    @RequestMapping("sub5")
+    public String sub5(Model model) {
+        // List 내의 JavaBeans
+        List<Student> students = List.of(
+                new Student(1, "son", 33, 98.1234, "gmail"),
+                new Student(5, "hong", 55, 77.33, "yahoo"),
+                new Student(7, "messi", 66, 88.44, "daum"),
+                new Student(10, "otani", 22, 66.11, "naver"));
+
+        model.addAttribute("students", students);
+        return null;
+
     }
 }
