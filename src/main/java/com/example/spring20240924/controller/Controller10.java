@@ -1,6 +1,7 @@
 package com.example.spring20240924.controller;
 
 import com.example.spring20240924.dto.c10.Car;
+import com.example.spring20240924.dto.c10.Computer;
 import com.example.spring20240924.dto.c10.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,5 +41,20 @@ public class Controller10 {
         model.addAttribute("tCar", car2);
 
         return null;
+    }
+
+    @RequestMapping("sub3")
+    public String sub3(Model model) {
+
+        Computer com = new Computer();
+        com.setId(99);
+        com.setName("intel");
+        com.setModel("model 9");
+        com.setExpired(true);
+
+        model.addAttribute("computer", com);
+
+        return null;
+
     }
 }
