@@ -2,6 +2,7 @@ package com.example.spring20240924.controller;
 
 import com.example.spring20240924.dto.c11.Car;
 import com.example.spring20240924.dto.c11.Person;
+import com.example.spring20240924.dto.c11.Player;
 import com.example.spring20240924.dto.c11.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -104,6 +105,16 @@ public class Controller11 {
                 new Person("donald", "trump", 77, List.of("game", "soccer", "golf")));
 
 
+        return null;
+
+    }
+
+    @RequestMapping("sub8")
+    public String sub8(Model model) {
+        model.addAttribute("player",
+                new Player("donal", "trump", "yahoo", true,
+                        List.of("토트넘", "맨시티", "다저스"),
+                        List.of(3.14, 5.12, 6.34, 7.56)));
         return null;
 
     }
