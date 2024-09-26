@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @Controller
 @RequestMapping("main12")
@@ -46,6 +48,14 @@ public class Controller12 {
         model.addAttribute("num1", 99);
         model.addAttribute("num2", 88);
         model.addAttribute("num3", 77);
+
+        model.addAttribute("attr1", "");
+        model.addAttribute("attr2", List.of());
+        model.addAttribute("attr3", Set.of());
+        model.addAttribute("attr4", Map.of());
+        model.addAttribute("attr5", null);
+//        model.addAttribute("attr6", null);
+
 
         return null;
     }

@@ -51,5 +51,54 @@
 <p>${"12" < 6}</p> <%--false--%>
 <p>${12 < "6"}</p> <%--false--%>
 <%--<p>${12 < "six"}</p>--%>
+
+<hr>
+
+<%-- 논리연산자  &&, ||, !--%>
+<p>${true && true}</p> <%-- true --%>
+<p>${true and true}</p> <%-- true --%>
+
+<p>${false || false}</p> <%-- false --%>
+<p>${false or false}</p> <%-- false --%>
+
+<p>${! true}</p> <%-- false --%>
+<p>${not true}</p> <%-- false --%>
+
+<hr>
+<%-- empty --%>
+<%-- "", 길이가 0인 콜렉션(List, Set, Map), null 이면 true --%>
+<p>${empty ""}</p> <%--true--%>
+<p>${empty attr1}</p>
+<p>${empty attr2}</p>
+<p>${empty attr3}</p>
+<p>${empty attr4}</p>
+<p>${empty attr5}</p>
+<p>${empty attr6}</p>
+
+<p>${attr2.size() == 0}</p>
+<p>${attr3.size() == 0}</p>
+<p>${attr4.size() == 0}</p>
+
+<hr>
+<%-- 빈문자열, 빈콜렉션, null이 아닌지 ? --%>
+<p>${not empty ""}</p> <%--true--%>
+<p>${not empty attr1}</p>
+<p>${not empty attr2}</p>
+<p>${not empty attr3}</p>
+<p>${not empty attr4}</p>
+<p>${not empty attr5}</p>
+<p>${not empty attr6}</p>
+
+<p>${attr2.size() > 0}</p>
+<p>${attr3.size() > 0}</p>
+<p>${attr4.size() > 0}</p>
+
+<hr>
+
+<%-- 삼항연산자  ? : --%>
+<p>${true ? "hello" : "world"}</p> <%-- hello --%>
+<p>${false ? "hello" : "world"}</p> <%-- world --%>
+
+
 </body>
 </html>
