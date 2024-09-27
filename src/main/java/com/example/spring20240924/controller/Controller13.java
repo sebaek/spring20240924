@@ -36,5 +36,20 @@ public class Controller13 {
     @RequestMapping("sub6")
     public void method6(Model model) {
         model.addAttribute("products", List.of("피자", "라면", "돈까스", "콜라"));
+        model.addAttribute("players", List.of("오타니", "흥민", "범근", "케인", "지성"));
+
+        model.addAttribute("cityList",
+                List.of("seoul", "jeju", "busan", "london", "ny", "la"));
+
+        /*
+        <ul>
+            <li>seoul</li>
+            <li>jeju</li>
+            <li>busan</li>
+            <li>london</li>
+            <li>ny</li>
+            <li>la</li>
+        </ul>
+         */
     }
 }
