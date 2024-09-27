@@ -2,6 +2,16 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <head>
+    <style>
+        table, tr, th, td {
+            border: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+    </style>
     <title>Title</title>
 </head>
 <body>
@@ -23,6 +33,33 @@
             <td>${book.publisher}</td>
             <td>${book.pages}</td>
             <td>${book.price}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+
+<hr>
+<table>
+    <thead>
+    <tr>
+        <th>이름</th>
+        <th>팀</th>
+        <th>포지션</th>
+        <th>키</th>
+        <th>몸무게</th>
+        <th>생일</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <c:forEach items="${members}" var="member">
+        <tr>
+            <td>${member.name}</td>
+            <td>${member.team}</td>
+            <td>${member.position}</td>
+            <td>${member.height}cm</td>
+            <td>${member.weight}kg</td>
+            <td>${member.birth}</td>
         </tr>
     </c:forEach>
     </tbody>
