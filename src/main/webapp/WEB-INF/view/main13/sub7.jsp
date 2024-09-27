@@ -21,5 +21,12 @@
         <p>소속 : ${player.value}</p>
     </div>
 </c:forEach>
+<hr>
+<c:forEach items="${food}" var="f">
+    <div style="margin: 30px;">
+        <p>종류 : ${f.key}</p>
+        <p>상품 : ${f.value}</p>
+    </div>
+</c:forEach>
 </body>
 </html>

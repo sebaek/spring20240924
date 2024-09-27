@@ -74,6 +74,21 @@ public class Controller13 {
                         "버거", "빅맥",
                         "피자", "하와이안"));
     }
+
+    @RequestMapping("sub8")
+    public void method8(Model model) {
+        model.addAttribute(
+                "datas",
+                List.of(Map.of(
+                        "marvel", "avengers",
+                        "dc", "batman",
+                        "sony", "spiderman"
+                ), Map.of(
+                        "show", "오징어게임",
+                        "darama", "무빙",
+                        "film", "조커"
+                )));
+    }
 }
 
 
