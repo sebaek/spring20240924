@@ -109,6 +109,10 @@ public class Controller13 {
         model.addAttribute("data",
                 Map.of("foods", List.of("피자", "버거", "국밥", "파전"),
                         "coffees", List.of("아메", "라떼", "모카")));
+
+        model.addAttribute("movies",
+                Map.of("marvel", List.of("ironman", "captain", "panther"),
+                        "dc", List.of("superman", "joker", "batman")));
     }
 }
 

@@ -13,5 +13,7 @@
         </c:forEach>
     </ul>
 </c:forEach>
+<hr>
+<%--forEach 코드 작성--%>
 </body>
 </html>
