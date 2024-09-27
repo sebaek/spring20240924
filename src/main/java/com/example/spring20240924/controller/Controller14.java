@@ -33,6 +33,19 @@ public class Controller14 {
         model.addAttribute("actor",
                 new Actor("이정재", "컴퍼니", "12/15", "enfj",
                         List.of("오징어게임", "신세계", "관상", "도둑들")));
+
+        model.addAttribute("actorList"
+                , List.of(
+                        new Actor("lee", "com1", "01/01", "isfj",
+                                List.of("game", "man", "thief")),
+                        new Actor("kim", "com2", "02/02", "esfj",
+                                List.of("movie1", "film1", "drama1")),
+                        new Actor("choi", "sm", "03/03", "intp",
+                                List.of("movie2", "film2", "show1")),
+                        new Actor("park", "yg", "04/04", "isfp",
+                                List.of("movie3", "film3", "show2")),
+                        new Actor("son", "hive", "05/05", "entj",
+                                List.of("movie4", "film4", "drama2"))));
     }
 
 }
