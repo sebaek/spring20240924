@@ -26,4 +26,8 @@ public class Controller13 {
     @RequestMapping("sub4")
     public void method4(Model model) {
     }
+
+    @RequestMapping("sub5")
+    public void method5(Model model) {
+    }
 }
