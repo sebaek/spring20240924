@@ -1,5 +1,6 @@
 package com.example.spring20240924.controller;
 
+import com.example.spring20240924.dto.c14.Actor;
 import com.example.spring20240924.dto.c14.Book;
 import com.example.spring20240924.dto.c14.Member;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,13 @@ public class Controller14 {
                 new Member("현우", 189, 75, "09/25", "울산", "GK"),
                 new Member("희찬", 177, 77, "01/26", "울버햄튼", "MF")
         ));
+    }
+
+    @RequestMapping("sub2")
+    public void sub2(Model model) {
+        model.addAttribute("actor",
+                new Actor("이정재", "컴퍼니", "12/15", "enfj",
+                        List.of("오징어게임", "신세계", "관상", "도둑들")));
     }
 
 }
