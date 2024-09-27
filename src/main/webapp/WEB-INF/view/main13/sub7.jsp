@@ -14,5 +14,12 @@
 <c:forEach items="${people}" var="person">
     <p>${person.key} : ${person.value}</p>
 </c:forEach>
+<hr>
+<c:forEach items="${players}" var="player">
+    <div style="margin: 10px">
+        <p>이름 : ${player.key}</p>
+        <p>소속 : ${player.value}</p>
+    </div>
+</c:forEach>
 </body>
 </html>
