@@ -16,6 +16,10 @@ public class Controller13 {
 
     @RequestMapping("sub2")
     public void method2(Model model) {
-        
+
+    }
+
+    @RequestMapping("sub3")
+    public void method3(Model model) {
     }
 }

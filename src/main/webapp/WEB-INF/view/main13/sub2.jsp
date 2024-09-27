@@ -44,17 +44,23 @@ if
 <%--
 country 가 uk 이면
 --%>
-<p>해리 케인</p>
+<c:if test="${param.country == 'uk'}">
+    <p>해리 케인</p>
+</c:if>
 
 <%--
 country 가 jp 이면
 --%>
-<p>오타니</p>
+<c:if test="${param.country == 'jp'}">
+    <p>오타니</p>
+</c:if>
 
 <%--
 country 가 kr 이면
 --%>
-<p>손흥민</p>
+<c:if test="${param.country == 'kr'}">
+    <p>손흥민</p>
+</c:if>
 
 </body>
 </html>
