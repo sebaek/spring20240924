@@ -49,5 +49,11 @@ request parameter 'dan'
 
 <hr>
 <%-- forEach를 활용하여 2단~9단까지 출력 --%>
+<c:forEach begin="2" end="9" var="dan">
+    <h3>구구단 ${dan} 단</h3>
+    <c:forEach begin="1" end="9" var="num">
+        <p>${dan} X ${num} = ${dan * num}</p>
+    </c:forEach>
+</c:forEach>
 </body>
 </html>
