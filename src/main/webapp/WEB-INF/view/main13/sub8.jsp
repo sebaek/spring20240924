@@ -15,5 +15,9 @@
         </c:forEach>
     </div>
 </c:forEach>
+
+<hr>
+
+<%-- 코드 작성 --%>
 </body>
 </html>

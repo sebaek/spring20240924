@@ -88,6 +88,20 @@ public class Controller13 {
                         "darama", "무빙",
                         "film", "조커"
                 )));
+
+        model.addAttribute("players",
+                List.of(
+                        Map.of(
+                                "손흥민", "공격수",
+                                "이강인", "미드필더",
+                                "김민재", "수비수"
+                        ),
+                        Map.of(
+                                "해리 케인", "공격수",
+                                "포든", "미드필더",
+                                "조던", "골키퍼"
+                        )
+                ));
     }
 }
 
