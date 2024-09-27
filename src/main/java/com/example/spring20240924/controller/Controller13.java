@@ -103,6 +103,13 @@ public class Controller13 {
                         )
                 ));
     }
+
+    @RequestMapping("sub9")
+    public void method9(Model model) {
+        model.addAttribute("data",
+                Map.of("foods", List.of("피자", "버거", "국밥", "파전"),
+                        "coffees", List.of("아메", "라떼", "모카")));
+    }
 }
 
 
