@@ -38,5 +38,13 @@ request parameter 'dan'
 ?dan=5     :  5단 출력
 ?dan=7     :  7단 출력
 --%>
+<c:if test="${param.dan > 1 && param.dan < 10}" var="validDan">
+    <c:forEach begin="1" end="9" var="i">
+        <p>${param.dan} X ${i} = ${param.dan * i}</p>
+    </c:forEach>
+</c:if>
+<c:if test="${not validDan}">
+    <p>유효한 단 수를 입력해주세요.</p>
+</c:if>
 </body>
 </html>
