@@ -13,4 +13,9 @@ public class Controller13 {
         model.addAttribute("attr1", "hello model attribute");
 
     }
+
+    @RequestMapping("sub2")
+    public void method2(Model model) {
+        
+    }
 }

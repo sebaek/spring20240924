@@ -51,6 +51,7 @@ param : request parameter 를 map으로 담은 객체
 <p>${param.score}</p>
 
 <%-- 쿼리스트링 작성후 요청 보내기--%>
+<%--?player=오타니&player=흥민&player=범근&teams=다저스&teams=토트넘--%>
 <p>${paramValues.player[0]}</p>
 <p>${paramValues.player[1]}</p>
 <p>${paramValues.player[2]}</p>
