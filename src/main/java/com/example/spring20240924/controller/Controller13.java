@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("main13")
 public class Controller13 {
@@ -33,6 +35,6 @@ public class Controller13 {
 
     @RequestMapping("sub6")
     public void method6(Model model) {
-        
+        model.addAttribute("products", List.of("피자", "라면", "돈까스", "콜라"));
     }
 }
