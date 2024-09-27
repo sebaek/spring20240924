@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("main13")
@@ -52,4 +53,19 @@ public class Controller13 {
         </ul>
          */
     }
+
+    @RequestMapping("sub7")
+    public void method7(Model model) {
+        model.addAttribute("people",
+                Map.of("kim", "seoul",
+                        "lee", "busan",
+                        "choi", "jeju",
+                        "park", "ulsan"));
+        
+    }
 }
+
+
+
+
+
