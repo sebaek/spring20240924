@@ -46,5 +46,8 @@ request parameter 'dan'
 <c:if test="${not validDan}">
     <p>유효한 단 수를 입력해주세요.</p>
 </c:if>
+
+<hr>
+<%-- forEach를 활용하여 2단~9단까지 출력 --%>
 </body>
 </html>
