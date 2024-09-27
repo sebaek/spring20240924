@@ -19,5 +19,11 @@
 <hr>
 
 <%-- 코드 작성 --%>
+<c:forEach items="${players}" var="map">
+    <c:forEach items="${map}" var="player">
+        <p>${player.key} : ${player.value}</p>
+    </c:forEach>
+    <hr>
+</c:forEach>
 </body>
 </html>
