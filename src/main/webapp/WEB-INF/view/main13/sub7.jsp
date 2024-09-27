@@ -16,7 +16,7 @@
 </c:forEach>
 <hr>
 <c:forEach items="${players}" var="player">
-    <div style="margin: 10px">
+    <div style="margin: 30px">
         <p>이름 : ${player.key}</p>
         <p>소속 : ${player.value}</p>
     </div>

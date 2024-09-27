@@ -61,7 +61,18 @@ public class Controller13 {
                         "lee", "busan",
                         "choi", "jeju",
                         "park", "ulsan"));
-        
+
+        model.addAttribute("players",
+                Map.of("messi", "아르헨티나",
+                        "faker", "t1",
+                        "음바페", "레알",
+                        "흥민", "한국"));
+
+        model.addAttribute("food",
+                Map.of("초콜릿", "가나",
+                        "탄산", "코카콜라",
+                        "버거", "빅맥",
+                        "피자", "하와이안"));
     }
 }
 
