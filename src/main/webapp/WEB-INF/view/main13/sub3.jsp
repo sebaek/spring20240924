@@ -38,6 +38,22 @@
 age 가 없으면 '나이를 입력해주세요'
 age < 0 면 '유효한 나이를 입력해주세요'
 --%>
-
+<c:choose>
+    <c:when test="${param.age >= 0 && param.age <= 13}">
+        <p>어린이 영화</p>
+    </c:when>
+    <c:when test="${param.age > 14 && param.age <= 19}">
+        <p>청소년 영화</p>
+    </c:when>
+    <c:when test="${param.age >= 20}">
+        <p>성인 영화</p>
+    </c:when>
+    <c:when test="${empty param.age}">
+        <p>나이를 입력해주세요.</p>
+    </c:when>
+    <c:when test="${param.age < 0}">
+        <p>유효한 나이를 입력해주세요.</p>
+    </c:when>
+</c:choose>
 </body>
 </html>
