@@ -32,6 +32,11 @@
 <c:forEach items="${players}" var="player">
     <p>${player}</p>
 </c:forEach>
-
+<hr>
+<ul>
+    <c:forEach items="${cityList}" var="city">
+        <li>${city}</li>
+    </c:forEach>
+</ul>
 </body>
 </html>
