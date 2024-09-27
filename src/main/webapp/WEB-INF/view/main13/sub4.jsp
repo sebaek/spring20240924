@@ -24,13 +24,21 @@
 <%-- loc 요청 파라미터가 kr 이면 한국 컨텐츠들--%>
 <%-- loc 요청 파라미터가 us 이면 미국 컨텐츠들--%>
 
-<p>한국 컨텐츠1</p>
-<p>미국 컨텐츠1</p>
+<c:if test="${param.loc eq 'kr'}" var="krLoc">
+    <p>한국 컨텐츠1</p>
+</c:if>
+<c:if test="${param.loc == 'us'}" var="usLoc">
+    <p>미국 컨텐츠1</p>
+</c:if>
 
 <p>여러 코드들...</p>
 
-<p>한국 컨텐츠2</p>
-<p>미국 컨텐츠2</p>
+<c:if test="${krLoc}">
+    <p>한국 컨텐츠2</p>
+</c:if>
+<c:if test="${usLoc}">
+    <p>미국 컨텐츠2</p>
+</c:if>
 
 
 </body>
