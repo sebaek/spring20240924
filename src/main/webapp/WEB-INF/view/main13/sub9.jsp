@@ -15,5 +15,12 @@
 </c:forEach>
 <hr>
 <%--forEach 코드 작성--%>
+
+<c:forEach items="${movies}" var="list">
+    <h4>${list.key}</h4>
+    <c:forEach items="${list.value}" var="item">
+        <p style="padding-left: 30px">${item}</p>
+    </c:forEach>
+</c:forEach>
 </body>
 </html>
