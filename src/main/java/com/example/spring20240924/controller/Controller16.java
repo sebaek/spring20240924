@@ -45,4 +45,13 @@ public class Controller16 {
         }
     }
 
+    @RequestMapping("sub6")
+    public void sub6(Model model, HttpSession session) {
+    }
+
+    @RequestMapping("sub7")
+    public void sub7(Model model, HttpSession session) {
+        session.invalidate(); // 세션 삭제
+    }
+
 }
