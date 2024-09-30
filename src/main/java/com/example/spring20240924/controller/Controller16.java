@@ -1,0 +1,28 @@
+package com.example.spring20240924.controller;
+
+import jakarta.servlet.http.HttpSession;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.support.SessionStatus;
+
+@Controller
+@RequestMapping("main16")
+public class Controller16 {
+    @RequestMapping("sub1")
+    public void sub1(Model model, HttpSession session) {
+        // session : 하나의 브라우저에서 오는 요청(request)들이
+        //            공유하는 객체
+        int r = (int) (Math.random() * 100000000);
+        System.out.println("r = " + r);
+        model.addAttribute("attr1", "hello attr" + r);
+
+        session.setAttribute("attr2", "hello session attr" + r);
+    }
+
+    @RequestMapping("sub2")
+    public void sub2(Model model) {
+
+    }
+
+}
