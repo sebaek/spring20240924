@@ -2,32 +2,11 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <head>
-    <style>
-        .navbar {
-            display: flex;
-            gap: 5px;
-        }
-
-        .nav-item {
-            padding: 10px;
-        }
-
-        .nav-item:hover {
-            background-color: darkgray;
-            color: yellow;
-        }
-    </style>
     <title>Title</title>
 </head>
 <body>
-<%--div.navbar>div.nav-item*5--%>
-<div class="navbar">
-    <div class="nav-item">증권홈</div>
-    <div class="nav-item">국내증시</div>
-    <div class="nav-item">해외증시</div>
-    <div class="nav-item">시장지표</div>
-    <div class="nav-item">리서치</div>
-</div>
+<%-- sub3의 내용을 이 위치에 추가--%>
+<c:import url="/WEB-INF/view/main15/sub3.jsp"/>
 
 <hr>
 <h1>SUB2.JSP 컨텐츠들</h1>
