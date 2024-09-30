@@ -1,8 +1,11 @@
 package com.example.spring20240924.controller;
 
+import com.example.spring20240924.dto.c15.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("main15")
@@ -43,5 +46,9 @@ public class Controller15 {
 
     @RequestMapping("sub13")
     public void sub13(Model model) {
+        model.addAttribute("productList",
+                List.of(new Product(5, "책", 5000),
+                        new Product(9, "자동차", 10000),
+                        new Product(13, "컴퓨터", 6000)));
     }
 }
