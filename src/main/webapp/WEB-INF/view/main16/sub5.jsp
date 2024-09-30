@@ -5,17 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-<div>
-    <div>
-        <a href="/main16/sub3">블로그</a>
-    </div>
-    <div>
-        <a href="/main16/sub4">카페</a>
-    </div>
-    <div>
-        <a href="/main16/sub5">로그인</a>
-    </div>
-</div>
+<c:import url="/WEB-INF/view/main16/sub8.jsp"/>
+
 <h1>로그인</h1>
 <form>
     <input type="text" name="id" placeholder="아이디">

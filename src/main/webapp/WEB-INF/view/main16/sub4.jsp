@@ -5,17 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-<div>
-    <div>
-        <a href="/main16/sub3">블로그</a>
-    </div>
-    <div>
-        <a href="/main16/sub4">카페</a>
-    </div>
-    <div>
-        <a href="/main16/sub5">로그인</a>
-    </div>
-</div>
+<c:import url="/WEB-INF/view/main16/sub8.jsp"/>
+
 
 <h1>${sessionScope.userid} 카페 게시물</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur dolores error et eveniet facere illo laboriosam

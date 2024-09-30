@@ -54,4 +54,11 @@ public class Controller16 {
         session.invalidate(); // 세션 삭제
     }
 
+    @RequestMapping("sub9")
+    public String sub9(Model model, HttpSession session) {
+        session.invalidate();
+
+        return "redirect:/main16/sub5";
+    }
+
 }
