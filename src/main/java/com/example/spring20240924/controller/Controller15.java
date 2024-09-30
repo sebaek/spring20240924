@@ -51,4 +51,8 @@ public class Controller15 {
                         new Product(9, "자동차", 10000),
                         new Product(13, "컴퓨터", 6000)));
     }
+
+    @RequestMapping("sub16")
+    public void sub16(Model model) {
+    }
 }
