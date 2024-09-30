@@ -55,4 +55,12 @@ public class Controller15 {
     @RequestMapping("sub16")
     public void sub16(Model model) {
     }
+
+    @RequestMapping("sub18")
+    public void sub18(Model model) {
+    }
+
+    @RequestMapping("sub19")
+    public void sub19(Model model) {
+    }
 }
