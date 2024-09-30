@@ -34,4 +34,9 @@ public class Controller15 {
         model.addAttribute("some1", "hello import tag");
 
     }
+
+    @RequestMapping("sub11")
+    public void sub11() {
+        
+    }
 }

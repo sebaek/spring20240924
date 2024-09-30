@@ -7,4 +7,5 @@
     <p>${param.name}</p>
     <p>${param.age}</p>
     <p>${param.address}</p>
+    <p>${param.price}</p>
 </div>
