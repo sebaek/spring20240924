@@ -15,4 +15,12 @@ public class Controller15 {
     public void sub2() {
 
     }
+
+    @RequestMapping("sub4")
+    public void sub4() {
+    }
+
+    @RequestMapping("sub5")
+    public void sub5() {
+    }
 }
