@@ -29,6 +29,22 @@
 <c:set var="food" value="돈까스" scope="application"/>
 
 <%--아반떼, 제네시스, 모하비, 모델 Y, 피자, 버거, 돈까스 출력 하는 코드--%>
+<p>${model}</p>
+<p>${requestScope.model}</p>
+<p>${sessionScope.model}</p>
+<p>${applicationScope.model}</p>
+<p>${food}</p>
+<p>${sessionScope.food}</p>
+<p>${applicationScope.food}</p>
 
+<hr>
+<c:if test="true" var="someTest" scope="page">
+</c:if>
+
+<c:if test="${someTest}">
+</c:if>
+
+<c:import url="/WEB-INF/view/main15/sub15.jsp" var="sub19output" scope="page"/>
+<p>${sub19output}</p>
 </body>
 </html>
