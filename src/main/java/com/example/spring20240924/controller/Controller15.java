@@ -36,7 +36,12 @@ public class Controller15 {
     }
 
     @RequestMapping("sub11")
-    public void sub11() {
-        
+    public void sub11(Model model) {
+        model.addAttribute("attr1", "hello request");
+
+    }
+
+    @RequestMapping("sub13")
+    public void sub13(Model model) {
     }
 }
