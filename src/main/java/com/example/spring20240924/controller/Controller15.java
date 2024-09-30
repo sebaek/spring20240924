@@ -1,6 +1,7 @@
 package com.example.spring20240924.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -29,7 +30,8 @@ public class Controller15 {
     }
 
     @RequestMapping("sub9")
-    public void sub9() {
-        
+    public void sub9(Model model) {
+        model.addAttribute("some1", "hello import tag");
+
     }
 }
