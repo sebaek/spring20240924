@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -49,8 +50,16 @@ public class Controller20 {
     }
 
     // /main20/sub5 경로로 get 방식 요청이 올 때
-    // 실행되는 메소드 get5 작성 
+    // 실행되는 메소드 get5 작성
+//    @RequestMapping(path = "sub5", method = RequestMethod.GET)
+    @GetMapping("sub5")
+    public void get5() {
+    }
 
     // /main20/sub5 경로로 post 방식 요청이 올 때
     // 실행되는 메소드 post5 작성
+//    @RequestMapping(path = "sub5", method = RequestMethod.POST)
+    @PostMapping("sub5")
+    public void post5() {
+    }
 }
