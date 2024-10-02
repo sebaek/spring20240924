@@ -47,4 +47,10 @@ public class Controller20 {
     public void post4() {
         System.out.println("post 전송 방식");
     }
+
+    // /main20/sub5 경로로 get 방식 요청이 올 때
+    // 실행되는 메소드 get5 작성 
+
+    // /main20/sub5 경로로 post 방식 요청이 올 때
+    // 실행되는 메소드 post5 작성
 }
