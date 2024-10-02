@@ -1,10 +1,7 @@
 package com.example.spring20240924.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -62,4 +59,15 @@ public class Controller20 {
     @PostMapping("sub5")
     public void post5() {
     }
+
+    /*
+    @RequestMapping(method = RequestMethod.PATCH)
+    @PatchMapping
+
+    @RequestMapping(method = RequestMethod.PUT)
+    @PutMapping
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    @DeleteMapping
+     */
 }
