@@ -3,6 +3,7 @@ package com.example.spring20240924.controller;
 import com.example.spring20240924.dto.c21.MyBean;
 import com.example.spring20240924.dto.c21.MyBean4;
 import com.example.spring20240924.dto.c21.MyBean5;
+import com.example.spring20240924.dto.c21.MyBean6;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -48,4 +49,30 @@ public class Controller21 {
         System.out.println("b = " + b);
     }
 
+
+    // ModelAttribute의 name(value) element를 생략하면
+    // 클래스명을 lowerCamelCase로 바꾼 이름으로 결정됨
+    @GetMapping("sub6")
+    public void g6(@ModelAttribute MyBean6 a,
+                   Model model) {
+        System.out.println("a = " + a);
+        // jsp : ${book.title}
+//        Object m = model.getAttribute("book");
+        Object m = model.getAttribute("myBean6");
+        System.out.println("m = " + m);
+        System.out.println("a = " + System.identityHashCode(a));
+        System.out.println("m = " + System.identityHashCode(m));
+    }
+
+    @GetMapping("sub7")
+    public void g7(MyBean6 a,
+                   Model model) {
+        System.out.println("a = " + a);
+        // jsp : ${book.title}
+//        Object m = model.getAttribute("book");
+        Object m = model.getAttribute("myBean6");
+        System.out.println("m = " + m);
+        System.out.println("a = " + System.identityHashCode(a));
+        System.out.println("m = " + System.identityHashCode(m));
+    }
 }

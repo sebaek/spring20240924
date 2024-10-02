@@ -44,5 +44,28 @@
     <button>전송</button>
 
 </form>
+
+<hr>
+<form action="/main21/sub6">
+    <%--    (input+br)*3+button{전송}--%>
+    <input type="text" name="title" value="java">
+    <br>
+    <input type="text" name="author" value="shin">
+    <br>
+    <input type="number" name="price" value="5000">
+    <br>
+    <button>전송</button>
+</form>
+<hr>
+<form action="/main21/sub7">
+    <%--    (input+br)*3+button{전송}--%>
+    <input type="text" name="title" value="java">
+    <br>
+    <input type="text" name="author" value="shin">
+    <br>
+    <input type="number" name="price" value="5000">
+    <br>
+    <button>전송</button>
+</form>
 </body>
 </html>
