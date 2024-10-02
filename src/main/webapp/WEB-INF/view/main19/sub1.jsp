@@ -138,13 +138,13 @@ Controller19.sub10 메소드 작성해서
     <input type="checkbox" name="foods" id="" value="tea">
     차
     <br>
-    <input type="radio" name="choice" id="sel1">
+    <input type="radio" name="choice" value="sel1">
     1번
     <br>
-    <input type="radio" name="choice" id="sel2">
+    <input type="radio" name="choice" value="sel2">
     2번
     <br>
-    <input type="radio" name="choice" id="sel3">
+    <input type="radio" name="choice" value="sel3">
     3번
     <br>
     <input type="date" name="birthDate" id="">

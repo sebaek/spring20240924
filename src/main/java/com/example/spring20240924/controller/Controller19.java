@@ -73,4 +73,23 @@ public class Controller19 {
         System.out.println("some = " + some);
     }
 
+    @RequestMapping("sub10")
+    public void sub10(String address,
+                      String[] foods,
+                      String choice,
+                      LocalDate birthDate,
+                      LocalDateTime startDateTime,
+                      String select,
+                      String note) {
+        System.out.println("address = " + address);
+        System.out.println("foods = " + Arrays.toString(foods));
+        System.out.println("choice = " + choice);
+        System.out.println("birthDate = " + birthDate);
+        System.out.println("startDateTime = " + startDateTime);
+        System.out.println("select = " + select);
+        System.out.println("note = " + note);
+
+
+    }
+
 }
