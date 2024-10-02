@@ -1,6 +1,8 @@
 package com.example.spring20240924.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDate;
@@ -32,5 +34,17 @@ public class Controller20 {
         System.out.println("birth = " + birth);
         System.out.println("age = " + age);
 
+    }
+
+    //@RequestMapping(path = "sub4", method = RequestMethod.GET)
+    @GetMapping("sub4")
+    public void get4() {
+        System.out.println("get 전송 방식");
+    }
+
+    //@RequestMapping(path = "sub4", method = RequestMethod.POST)
+    @PostMapping("sub4")
+    public void post4() {
+        System.out.println("post 전송 방식");
     }
 }
