@@ -26,13 +26,13 @@
 <%-- Controller21.sub5 메소드 작성: request paramter 가 객체의 property에 반영되어 콘솔에 출력 하는 코드--%>
 <form action="/main21/sub5" method="post">
     <%--    (input:r[name=select][value]+br)*3--%>
-    <input type="radio" name="select" id="" value="pizza">
+    <input type="checkbox" name="select" id="" value="pizza">
     피자
     <br>
-    <input type="radio" name="select" id="" value="burger">
+    <input type="checkbox" name="select" id="" value="burger">
     버거
     <br>
-    <input type="radio" name="select" id="" value="coffee">
+    <input type="checkbox" name="select" id="" value="coffee">
     커피
     <br>
     <input type="datetime-local" name="now">
