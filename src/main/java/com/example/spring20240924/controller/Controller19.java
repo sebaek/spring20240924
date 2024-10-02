@@ -27,4 +27,21 @@ public class Controller19 {
 
     // Controller19.sub3 메소드 작성해서 food, email, city
     //  요청 파라미터를 받아서 출력하는 코드 작성
+
+    @RequestMapping("sub3")
+    public void sub3(String food,
+                     String email,
+                     String city) {
+        System.out.println("food = " + food);
+        System.out.println("email = " + email);
+        System.out.println("city = " + city);
+
+    }
+
+    @RequestMapping("sub4")
+    public void sub4(String food, String name, String memo) {
+        System.out.println("food = " + food);
+        System.out.println("name = " + name);
+        System.out.println("memo = " + memo);
+    }
 }

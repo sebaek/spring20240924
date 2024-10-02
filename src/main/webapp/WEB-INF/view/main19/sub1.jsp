@@ -33,5 +33,36 @@ action : request parameters가 전달되는 위치
     <br>
     <button>전송</button>
 </form>
+
+<hr>
+<form action="/main19/sub3">
+    <%--  (input[name][value]+br)*3--%>
+    <input type="text" name="food" value="피자">
+    <br>
+    <input type="text" name="email" value="yahoo">
+    <br>
+    <input type="text" name="city" value="인천">
+    <br>
+
+    <button>전송</button>
+</form>
+<hr>
+<form action="/main19/sub4">
+    <input type="text" name="name" value="흥민">
+    <br>
+    <%--  select[name]>option[value]{val$}*3--%>
+    <select name="food" id="">
+        <option value="pizza">val1</option>
+        <option value="coffee">val2</option>
+        <option value="burger">val3</option>
+    </select>
+    <br>
+    <%--  textarea[name=memo]>lorem3--%>
+    <textarea name="memo" id="" cols="30" rows="10">Lorem ipsum dolor.</textarea>
+    <br>
+    <button>전송</button>
+
+
+</form>
 </body>
 </html>
