@@ -84,5 +84,6 @@ public class Controller21 {
 
     @PostMapping("sub9")
     public void p9(MyBean8 p) {
+        System.out.println("p = " + p);
     }
 }
