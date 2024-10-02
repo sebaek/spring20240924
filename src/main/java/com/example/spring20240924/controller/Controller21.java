@@ -1,9 +1,6 @@
 package com.example.spring20240924.controller;
 
-import com.example.spring20240924.dto.c21.MyBean;
-import com.example.spring20240924.dto.c21.MyBean4;
-import com.example.spring20240924.dto.c21.MyBean5;
-import com.example.spring20240924.dto.c21.MyBean6;
+import com.example.spring20240924.dto.c21.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -74,5 +71,18 @@ public class Controller21 {
         System.out.println("m = " + m);
         System.out.println("a = " + System.identityHashCode(a));
         System.out.println("m = " + System.identityHashCode(m));
+    }
+
+    // sub8.jsp
+    // : 전송버튼 클릭시 post 방식으로 sub9 경로로 요청하는 코드
+
+    // sub9.jsp
+    // : model에 있는 attribute의 각 property를 출력하는 코드
+    @GetMapping("sub8")
+    public void g8() {
+    }
+
+    @PostMapping("sub9")
+    public void p9(MyBean8 p) {
     }
 }
