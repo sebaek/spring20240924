@@ -1,6 +1,7 @@
 package com.example.spring20240924.controller;
 
 import com.example.spring20240924.dto.c21.MyBean;
+import com.example.spring20240924.dto.c21.MyBean4;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,11 @@ public class Controller21 {
 
     @PostMapping("sub3")
     public void p3(@ModelAttribute("some") MyBean b) {
+        System.out.println("b = " + b);
+    }
+
+    @GetMapping("sub4")
+    public void g4(@ModelAttribute("data") MyBean4 b) {
         System.out.println("b = " + b);
     }
 
