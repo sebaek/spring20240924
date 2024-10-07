@@ -23,6 +23,37 @@ FROM Products
 WHERE Price = '10.00';
 
 # Spain 에 있는 공급자들(Suppliers)
+SELECT *
+FROM Suppliers
+WHERE Country = 'Spain';
+SELECT *
+FROM Suppliers
+WHERE country = 'Spain';
+SELECT *
+FROM Suppliers
+WHERE counTRy = 'sPAin';
 # 상파울루(São Paulo)에 있는 고객들(Customers)
+SELECT *
+FROM Customers
+WHERE City = 'São Paulo';
 # 1963년 8월 30일 생인 직원(Employees)
+SELECT *
+FROM Employees
+WHERE BirthDate = '1963-08-30';
 # 2번 카테고리(Categories) 정보
+SELECT *
+FROM Categories
+WHERE CategoryID = '2';
+SELECT *
+FROM Categories
+WHERE CategoryID = 2;
+
+SELECT *
+FROM Products
+WHERE Price = '10.00';
+SELECT *
+FROM Products
+WHERE Price = 10.00;
+
+# 대소문자 구분없음
+# 수형식이면 따옴표 생략 가능
