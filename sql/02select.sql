@@ -73,6 +73,9 @@ FROM Suppliers;
 SELECT FirstName
 FROM Employees;
 
+SELECT ProductName
+FROM Products;
+
 
 
 

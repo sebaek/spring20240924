@@ -75,5 +75,24 @@ public class Controller23 {
     }
 
     // 상품명들을 조회하는 세번째 메소드와 jsp 작성
+    @GetMapping("sub3")
+    public void sub3(Model model) throws SQLException {
+        String sql = "SELECT ProductName FROM Products";
 
+        String url = "jdbc:mariadb://localhost:3306/w3schools";
+        String userName = "root";
+        String password = "1234";
+        Connection con = DriverManager.getConnection(url, userName, password);
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+
+        try (con; stmt; rs) {
+            List<String> list = new ArrayList<>();
+            while (rs.next()) {
+                String name = rs.getString("ProductName");
+                list.add(name);
+            }
+            model.addAttribute("names", list);
+        }
+    }
 }
