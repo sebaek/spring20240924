@@ -47,5 +47,34 @@ public class Controller25 {
         }
     }
 
-    // 
+    // 특정 가격인 상품명 조회
+    // 메소드,jsp
+
+    // /main25/sub2?price=20.00
+    @GetMapping("sub2")
+    public void sub2(Model model, String price) {
+        String sql = STR."""
+                SELECT ProductName
+                FROM Products
+                WHERE Price = '\{price}'
+                """;
+
+        List<String> list = new ArrayList<>();
+        try {
+            Connection connection = dataSource.getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            try (connection; stmt; rs) {
+                while (rs.next()) {
+                    list.add(rs.getString("ProductName"));
+                }
+
+                model.addAttribute("nameList", list);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
