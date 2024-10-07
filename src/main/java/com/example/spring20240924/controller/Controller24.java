@@ -1,6 +1,7 @@
 package com.example.spring20240924.controller;
 
 import com.example.spring20240924.dto.c24.Customer;
+import com.example.spring20240924.dto.c24.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -80,5 +81,19 @@ public class Controller24 {
                 FROM Employees
                 """;
         // 이 메소드와 Employee, sub3.jsp 작성
+        Connection con = dataSource.getConnection();
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        List<Employee> list = new ArrayList<>();
+        try (con; stmt; rs) {
+            while (rs.next()) {
+                Employee employee = new Employee();
+                employee.setFirstName(rs.getString("FirstName"));
+                employee.setLastName(rs.getString("LastName"));
+                employee.setId(rs.getString("EmployeeID"));
+                list.add(employee);
+            }
+            model.addAttribute("employeeList", list);
+        }
     }
 }
