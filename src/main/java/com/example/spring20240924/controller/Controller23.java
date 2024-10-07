@@ -74,4 +74,6 @@ public class Controller23 {
         }
     }
 
+    // 상품명들을 조회하는 세번째 메소드와 jsp 작성
+
 }
