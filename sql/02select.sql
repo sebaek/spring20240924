@@ -70,6 +70,8 @@ SELECT City, Country, SupplierName
 FROM Suppliers;
 
 
+SELECT FirstName
+FROM Employees;
 
 
 
