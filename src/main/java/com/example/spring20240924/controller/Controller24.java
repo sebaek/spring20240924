@@ -2,6 +2,7 @@ package com.example.spring20240924.controller;
 
 import com.example.spring20240924.dto.c24.Customer;
 import com.example.spring20240924.dto.c24.Employee;
+import com.example.spring20240924.dto.c24.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -105,4 +106,26 @@ public class Controller24 {
     // 상품번호, 상품명, 단위, 가격 을 상품(Products)테이블에서 조회 후 출력
     // ProductID, ProductName, Unit, Price
     // 4번째 메소드, jsp, javaBean(dto) 작성
+    @GetMapping("sub4")
+    public void sub4(Model model) throws SQLException {
+        String sql = """
+                SELECT ProductName, ProductID, Unit, Price
+                FROM Products
+                """;
+        Connection con = dataSource.getConnection();
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        List<Product> list = new ArrayList<>();
+        try (con; stmt; rs) {
+            while (rs.next()) {
+                Product product = new Product();
+                product.setName(rs.getString(1));
+                product.setId(rs.getString(2));
+                product.setUnit(rs.getString(3));
+                product.setPrice(rs.getString(4));
+                list.add(product);
+            }
+            model.addAttribute("productList", list);
+        }
+    }
 }
