@@ -53,3 +53,8 @@ from Customers;
 
 SELECT DISTINCT Country
 FROM Suppliers;
+
+SELECT *
+FROM Customers;
+SELECT CustomerName, ContactName, Address
+FROM Customers;
