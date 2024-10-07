@@ -48,4 +48,30 @@ public class Controller23 {
 
     }
 
+    @GetMapping("sub2")
+    public void sub2(Model model) throws SQLException {
+        String sql = "SELECT CustomerName FROM Customers";
+
+        String url = "jdbc:mariadb://localhost:3306/w3schools";
+        String userName = "root";
+        String password = "1234";
+        // 연결
+        Connection con = DriverManager.getConnection(url, userName, password);
+        // 쿼리 실행 준비
+        Statement stmt = con.createStatement();
+        // 쿼리 실행
+        ResultSet rs = stmt.executeQuery(sql);
+
+        try (con; stmt; rs) {
+            List<String> list = new ArrayList<>();
+            while (rs.next()) {
+                // 실행 결과 가공
+                String name = rs.getString("CustomerName");
+                list.add(name);
+            }
+
+            model.addAttribute("nameList", list);
+        }
+    }
+
 }
