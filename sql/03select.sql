@@ -50,3 +50,6 @@ FROM Customers;
 
 select CUSTOMERNAME
 from Customers;
+
+SELECT DISTINCT Country
+FROM Suppliers;
