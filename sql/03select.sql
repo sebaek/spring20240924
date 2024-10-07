@@ -58,3 +58,5 @@ SELECT *
 FROM Customers;
 SELECT CustomerName, ContactName, Address
 FROM Customers;
+SELECT EmployeeID, LastName, FirstName, Notes
+FROM Employees;
