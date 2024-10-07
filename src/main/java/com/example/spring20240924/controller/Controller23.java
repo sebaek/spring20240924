@@ -95,4 +95,33 @@ public class Controller23 {
             model.addAttribute("names", list);
         }
     }
+
+    // 고객이 있는 국가명들 조회
+    @GetMapping("sub4")
+    public void sub4(Model model) throws SQLException {
+        String sql = """
+                SELECT DISTINCT Country
+                FROM Customers
+                """;
+
+        String url = "jdbc:mariadb://localhost:3306/w3schools";
+        String userName = "root";
+        String password = "1234";
+        Connection con = DriverManager.getConnection(url, userName, password);
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        try (con; stmt; rs) {
+            List<String> list = new ArrayList<>();
+            while (rs.next()) {
+                String name = rs.getString("Country");
+                list.add(name);
+            }
+            model.addAttribute("countryList", list);
+        }
+
+    }
+
+    // 다섯번째 메소드 작성
+    // 공급자(Suppliers) 테이블 조회해서 국가명(Country) 목록 출력하기
+    // sub4.jsp 재사용하기
 }
