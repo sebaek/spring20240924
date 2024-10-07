@@ -91,6 +91,7 @@ public class Controller24 {
                 employee.setFirstName(rs.getString("FirstName"));
                 employee.setLastName(rs.getString("LastName"));
                 employee.setId(rs.getString("EmployeeID"));
+                employee.setBirthDate(rs.getString("BirthDate"));
                 list.add(employee);
             }
             model.addAttribute("employeeList", list);

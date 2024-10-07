@@ -20,6 +20,7 @@
         <th>번호</th>
         <th>First Name</th>
         <th>Last Name</th>
+        <th>생일</th>
     </tr>
     </thead>
     <tbody>
@@ -28,6 +29,7 @@
             <td>${e.id}</td>
             <td>${e.firstName}</td>
             <td>${e.lastName}</td>
+            <td>${e.birthDate}</td>
         </tr>
     </c:forEach>
     </tbody>
