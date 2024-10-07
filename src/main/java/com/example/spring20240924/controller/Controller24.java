@@ -79,6 +79,6 @@ public class Controller24 {
                 SELECT EmployeeID, FirstName, LastName, BirthDate
                 FROM Employees
                 """;
-        // 이 메소드와 sub3.jsp 작성
+        // 이 메소드와 Employee, sub3.jsp 작성
     }
 }
