@@ -84,4 +84,9 @@ public class Controller26 {
             model.addAttribute("productList", products);
         }
     }
+
+    @GetMapping("sub2")
+    public void sub2() {
+        
+    }
 }
