@@ -15,6 +15,14 @@
             >${category.name}</option>
         </c:forEach>
     </select>
+    <br>
+    <div style="border: 1px solid black; margin: 10px;">
+        <h4>정렬 조건</h4>
+        <input type="radio" name="order" value="name" id="order1" ${param.order == 'name' ? 'checked' : ''}>
+        <label for="order1">상품명</label>
+        <input type="radio" name="order" value="price" id="order2" ${param.order == 'price' ? 'checked' : ''}>
+        <label for="order2">가격</label>
+    </div>
     <button>조회</button>
 </form>
 <hr>

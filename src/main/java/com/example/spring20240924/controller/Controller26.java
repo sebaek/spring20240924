@@ -22,7 +22,7 @@ public class Controller26 {
     DataSource dataSource;
 
     @GetMapping("sub1")
-    public void sub1(Model model, String categoryId) throws Exception {
+    public void sub1(Model model, String categoryId, String order) throws Exception {
         String categorySQL = """
                 SELECT *
                 FROM Categories
@@ -54,6 +54,17 @@ public class Controller26 {
             productSQL += STR."""
                     WHERE CategoryId = \{categoryId}
                     """;
+        }
+        if (order != null) {
+            productSQL += switch (order) {
+                case "name" -> """
+                        ORDER BY ProductName
+                        """;
+                case "price" -> """
+                        ORDER BY Price
+                        """;
+                default -> "";
+            };
         }
         Connection con2 = dataSource.getConnection();
         Statement stmt2 = con2.createStatement();
