@@ -205,4 +205,35 @@ public class Controller26 {
 
     }
 
+    @GetMapping("sub5")
+    public void sub5(Model model,
+                     @RequestParam(defaultValue = "0") String from,
+                     @RequestParam(defaultValue = "2000000000") String to) throws SQLException {
+        String sql = STR."""
+                SELECT *
+                FROM Products
+                WHERE Price BETWEEN \{from} AND \{to}
+                ORDER BY Price
+                """;
+        Connection con = dataSource.getConnection();
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        List<Product> products = new ArrayList<>();
+        try (con; stmt; rs) {
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getString("ProductID"));
+                product.setName(rs.getString("ProductName"));
+                product.setCategoryId(rs.getString("CategoryID"));
+                product.setSupplierId(rs.getString("SupplierID"));
+                product.setUnit(rs.getString("Unit"));
+                product.setPrice(rs.getString("Price"));
+                products.add(product);
+
+            }
+            model.addAttribute("productList", products);
+        }
+
+    }
+
 }
