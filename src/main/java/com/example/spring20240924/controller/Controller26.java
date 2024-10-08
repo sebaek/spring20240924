@@ -175,5 +175,34 @@ public class Controller26 {
     }
 
     // 상품명 검색하는 코드 작성
-    
+    @GetMapping("sub4")
+    public void sub4(Model model,
+                     @RequestParam(value = "q", defaultValue = "") String keyword) throws SQLException {
+        String sql = STR."""
+                SELECT *
+                FROM Products
+                WHERE ProductName LIKE '%\{keyword}%'
+                """;
+
+        Connection con = dataSource.getConnection();
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        List<Product> products = new ArrayList<>();
+        try (con; stmt; rs) {
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getString("ProductID"));
+                product.setName(rs.getString("ProductName"));
+                product.setCategoryId(rs.getString("CategoryID"));
+                product.setSupplierId(rs.getString("SupplierID"));
+                product.setUnit(rs.getString("Unit"));
+                product.setPrice(rs.getString("Price"));
+                products.add(product);
+            }
+            model.addAttribute("productList", products);
+
+        }
+
+    }
+
 }
