@@ -8,10 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -136,6 +138,36 @@ public class Controller26 {
                 customer.setCity(rs2.getString("City"));
                 customer.setCountry(rs2.getString("Country"));
                 customer.setPostalCode(rs2.getString("PostalCode"));
+                customers.add(customer);
+            }
+            model.addAttribute("customerList", customers);
+        }
+    }
+
+    @GetMapping("sub3")
+    public void sub3(Model model,
+                     @RequestParam(defaultValue = "") String keyword) throws SQLException {
+        String sql = STR."""
+                SELECT *
+                FROM Customers
+                WHERE CustomerName LIKE '%\{keyword}%'
+                """;
+
+        Connection con = dataSource.getConnection();
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+
+        List<Customer> customers = new ArrayList<>();
+        try (con; stmt; rs) {
+            while (rs.next()) {
+                Customer customer = new Customer();
+                customer.setId(rs.getString("CustomerID"));
+                customer.setName(rs.getString("CustomerName"));
+                customer.setContact(rs.getString("ContactName"));
+                customer.setAddress(rs.getString("Address"));
+                customer.setCity(rs.getString("City"));
+                customer.setCountry(rs.getString("Country"));
+                customer.setPostalCode(rs.getString("PostalCode"));
                 customers.add(customer);
             }
             model.addAttribute("customerList", customers);
