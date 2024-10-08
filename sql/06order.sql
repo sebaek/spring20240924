@@ -64,3 +64,17 @@ SELECT *
 FROM Products
 WHERE CategoryID = 1
 ORDER BY SupplierID, Price DESC;
+
+# 컬럼명 대신 컬럼 인덱스 사용 가능 (SELECT 절의 컬럼 순서)
+SELECT *
+FROM Products
+WHERE CategoryID = 1
+ORDER BY 3, 6 DESC;
+SELECT ProductID, ProductName, SupplierID, CategoryID, Unit, Price
+FROM Products
+WHERE CategoryID = 1
+ORDER BY 3, 6 DESC;
+SELECT SupplierID, Price, ProductID, ProductName, CategoryID, Unit
+FROM Products
+WHERE CategoryID = 1
+ORDER BY 1, 2 DESC;
