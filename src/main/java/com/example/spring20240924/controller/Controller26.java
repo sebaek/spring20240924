@@ -173,4 +173,7 @@ public class Controller26 {
             model.addAttribute("customerList", customers);
         }
     }
+
+    // 상품명 검색하는 코드 작성
+    
 }
