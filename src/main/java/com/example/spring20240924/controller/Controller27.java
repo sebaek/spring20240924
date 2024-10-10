@@ -116,5 +116,14 @@ public class Controller27 {
         return "/main26/sub5";
     }
 
+    @GetMapping("sub4")
+    public void sub4(Model model) throws SQLException {
+        String sql = """
+                SELECT *
+                FROM Orders
+                WHERE OrderDate BETWEEN ? AND ?
+                """;
+        
+    }
 
 }
