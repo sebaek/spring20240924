@@ -71,3 +71,26 @@ ORDER BY BirthDate
 LIMIT 2, 1;
 
 # 페이지 나누기
+
+# 91명 고객
+SELECT *
+FROM Customers
+ORDER BY CustomerID;
+
+# 한 페이지에 10명 씩
+# 1 페이지 1~10
+SELECT *
+FROM Customers
+ORDER BY CustomerID
+LIMIT 0, 10;
+# 2 페이지 11~20
+SELECT *
+FROM Customers
+ORDER BY CustomerID
+LIMIT 10, 10;
+# 3 페이지 21~30
+SELECT *
+FROM Customers
+ORDER BY CustomerID
+LIMIT 20, 10;
+

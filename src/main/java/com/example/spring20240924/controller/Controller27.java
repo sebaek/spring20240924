@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -146,5 +147,42 @@ public class Controller27 {
         }
 
     }
+
+    @GetMapping("sub5")
+    public void sub5(Model model,
+                     @RequestParam(value = "page", defaultValue = "1") Integer pageNumber,
+                     @RequestParam(value = "page_count", defaultValue = "10") Integer pageCount) throws SQLException {
+        String sql = """
+                SELECT *
+                FROM Customers
+                ORDER BY CustomerId
+                LIMIT ?, ?
+                """;
+
+        Integer offset = (pageNumber - 1) * pageCount;
+
+        Connection conn = dataSource.getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setInt(1, offset);
+        pstmt.setInt(2, pageCount);
+        ResultSet rs = pstmt.executeQuery();
+
+        try (conn; pstmt; rs) {
+            List<Customer> list = new ArrayList<>();
+            while (rs.next()) {
+                Customer customer = new Customer();
+                customer.setId(rs.getString("CustomerId"));
+                customer.setName(rs.getString("CustomerName"));
+                customer.setContact(rs.getString("ContactName"));
+                customer.setAddress(rs.getString("Address"));
+                customer.setCity(rs.getString("City"));
+                customer.setCountry(rs.getString("Country"));
+                customer.setPostalCode(rs.getString("PostalCode"));
+                list.add(customer);
+            }
+            model.addAttribute("customerList", list);
+        }
+    }
+
 
 }
