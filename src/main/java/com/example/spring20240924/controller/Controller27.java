@@ -260,7 +260,7 @@ public class Controller27 {
             Integer endPageNumber = ((pageNumber - 1) / 7 + 1) * 7;
             // 시작페이지
             Integer beginPageNumber = endPageNumber - 6;
-            model.addAttribute("endPageNumber", endPageNumber);
+            model.addAttribute("endPageNumber", Math.min(endPageNumber, lastPageNumber));
             model.addAttribute("beginPageNumber", beginPageNumber);
 
             // 이전 버튼클릭시 페이지
