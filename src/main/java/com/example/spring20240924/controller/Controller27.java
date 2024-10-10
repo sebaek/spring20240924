@@ -167,24 +167,30 @@ public class Controller27 {
             Integer lastPageNumber = (numberOfRows - 1) / pageCount + 1;
 
             model.addAttribute("lastPageNumber", lastPageNumber);
+
+            // 현재 페이지 번호
+            model.addAttribute("currentPageNumber", pageNumber);
+            // 페이지 번호의 끝(맨 오른쪽)값 (10개씩 보여줄 때)
+            Integer endPageNumber = ((pageNumber - 1) / 10 + 1) * 10;
+            // 페이지 번호의 시작(맨 왼쪽)값 (10개씩 보여줄 때)
+            Integer beginPageNumber = endPageNumber - 9;
+
+            // 다음버튼 클릭시 사용될 페이지 번호
+            Integer nextPageNumber = endPageNumber + 1;
+            // 이전버튼 클릭시 사용될 페이지 번호
+            Integer prevPageNumber = beginPageNumber - 1;
+
+            if (nextPageNumber <= lastPageNumber) {
+                model.addAttribute("nextPageNumber", nextPageNumber);
+            }
+
+            if (prevPageNumber > 0) {
+                model.addAttribute("prevPageNumber", prevPageNumber);
+            }
+            model.addAttribute("endPageNumber", endPageNumber);
+            model.addAttribute("beginPageNumber", beginPageNumber);
+
         }
-        // 현재 페이지 번호
-        model.addAttribute("currentPageNumber", pageNumber);
-        // 페이지 번호의 끝(맨 오른쪽)값 (10개씩 보여줄 때)
-        Integer endPageNumber = ((pageNumber - 1) / 10 + 1) * 10;
-        // 페이지 번호의 시작(맨 왼쪽)값 (10개씩 보여줄 때)
-        Integer beginPageNumber = endPageNumber - 9;
-
-        // 다음버튼 클릭시 사용될 페이지 번호
-        Integer nextPageNumber = endPageNumber + 1;
-        // 이전버튼 클릭시 사용될 페이지 번호
-        Integer prevPageNumber = beginPageNumber - 1;
-
-        model.addAttribute("nextPageNumber", nextPageNumber);
-        model.addAttribute("prevPageNumber", prevPageNumber);
-        model.addAttribute("endPageNumber", endPageNumber);
-        model.addAttribute("beginPageNumber", beginPageNumber);
-
         // 고객 목록 조회
         String sql = """
                 SELECT *
@@ -228,6 +234,7 @@ public class Controller27 {
     // 페이지 번호 나열을 페이징 하기
 
     // 이전 버튼, 다음 버튼 만들기
+    // 이전, 다음 버튼 적절히 출력
     @GetMapping("sub6")
     public void sub6(Model model,
                      @RequestParam(value = "page", defaultValue = "1") Integer pageNumber,
