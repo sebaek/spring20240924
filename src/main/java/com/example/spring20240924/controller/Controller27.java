@@ -1,6 +1,7 @@
 package com.example.spring20240924.controller;
 
 import com.example.spring20240924.dto.c26.Customer;
+import com.example.spring20240924.dto.c26.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -79,6 +80,40 @@ public class Controller27 {
         }
 
         return "/main27/sub1";
+    }
+
+    // /main26/sub5
+    // /main27/sub3
+    @GetMapping("sub3")
+    public String sub3(Model model, String from, String to) throws SQLException {
+        String sql = """
+                SELECT *
+                FROM Products
+                WHERE Price BETWEEN ? AND ?
+                ORDER BY Price
+                """;
+        Connection conn = dataSource.getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, from);
+        pstmt.setString(2, to);
+        ResultSet rs = pstmt.executeQuery();
+
+        try (conn; pstmt; rs) {
+            List<Product> list = new ArrayList<>();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getString("ProductID"));
+                product.setName(rs.getString("ProductName"));
+                product.setCategoryId(rs.getString("CategoryID"));
+                product.setSupplierId(rs.getString("SupplierID"));
+                product.setUnit(rs.getString("Unit"));
+                product.setPrice(rs.getString("Price"));
+                list.add(product);
+            }
+            model.addAttribute("productList", list);
+        }
+
+        return "/main26/sub5";
     }
 
 
