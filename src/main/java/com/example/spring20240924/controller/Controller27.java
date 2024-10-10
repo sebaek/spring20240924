@@ -254,6 +254,14 @@ public class Controller27 {
         model.addAttribute("endPageNumber", endPageNumber);
         model.addAttribute("beginPageNumber", beginPageNumber);
 
+        // 이전 버튼클릭시 페이지
+        Integer prevPageNumber = beginPageNumber - 1;
+        // 다음 버튼클릭시 페이지
+        Integer nextPageNumber = endPageNumber + 1;
+
+        model.addAttribute("prevPageNumber", prevPageNumber);
+        model.addAttribute("nextPageNumber", nextPageNumber);
+
         String sql = """
                 SELECT *
                 FROM Orders

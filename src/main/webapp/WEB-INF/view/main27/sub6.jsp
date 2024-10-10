@@ -34,6 +34,10 @@
     </tbody>
 </table>
 <div style="margin: 10px;">
+    <c:url value="/main27/sub6" var="link">
+        <c:param name="page" value="${prevPageNumber}"></c:param>
+    </c:url>
+    <a href="${link}">&lt; 이전</a>
     <c:forEach begin="${beginPageNumber}" end="${endPageNumber}" var="pageNumber">
         <c:url value="/main27/sub6" var="link">
             <c:param name="page" value="${pageNumber}"></c:param>
@@ -42,6 +46,10 @@
             <a href="${link}">${pageNumber}</a>
         </span>
     </c:forEach>
+    <c:url value="/main27/sub6" var="link">
+        <c:param name="page" value="${nextPageNumber}"></c:param>
+    </c:url>
+    <a href="${link}">다음 &gt;</a>
 </div>
 </body>
 </html>
