@@ -29,7 +29,7 @@
     </tbody>
 </table>
 <div style="margin: 10px;">
-    <c:forEach begin="1" end="20" var="pageNumber">
+    <c:forEach begin="1" end="${lastPageNumber}" var="pageNumber">
         <c:url value="/main27/sub6" var="link">
             <c:param name="page" value="${pageNumber}"></c:param>
         </c:url>

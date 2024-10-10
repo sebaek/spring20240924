@@ -213,6 +213,20 @@ public class Controller27 {
     public void sub6(Model model,
                      @RequestParam(value = "page", defaultValue = "1") Integer pageNumber,
                      @RequestParam(value = "count", defaultValue = "20") Integer rowCount) throws SQLException {
+        String countSql = """
+                SELECT COUNT(*)
+                FROM Orders
+                """;
+
+        Connection conn2 = dataSource.getConnection();
+        PreparedStatement pstmt2 = conn2.prepareStatement(countSql);
+        ResultSet rs2 = pstmt2.executeQuery();
+        try (conn2; pstmt2; rs2;) {
+            Integer numberOfRows = rs2.next() ? rs2.getInt(1) : 0;
+            Integer lastPageNumber = (numberOfRows - 1) / rowCount + 1;
+            model.addAttribute("lastPageNumber", lastPageNumber);
+        }
+
         String sql = """
                 SELECT *
                 FROM Orders
