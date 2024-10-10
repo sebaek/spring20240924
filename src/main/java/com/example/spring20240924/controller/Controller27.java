@@ -168,7 +168,15 @@ public class Controller27 {
 
             model.addAttribute("lastPageNumber", lastPageNumber);
         }
+        // 현재 페이지 번호
+        model.addAttribute("currentPageNumber", pageNumber);
+        // 페이지 번호의 끝(맨 오른쪽)값 (10개씩 보여줄 때)
+        Integer endPageNumber = ((pageNumber - 1) / 10 + 1) * 10;
+        // 페이지 번호의 시작(맨 왼쪽)값 (10개씩 보여줄 때)
+        Integer beginPageNumber = endPageNumber - 9;
 
+        model.addAttribute("endPageNumber", endPageNumber);
+        model.addAttribute("beginPageNumber", beginPageNumber);
 
         // 고객 목록 조회
         String sql = """
@@ -209,6 +217,8 @@ public class Controller27 {
 
     // 마지막 페이지 구해서 Model로 넘겨주고
     // jsp에서 마지막 페이지 번호까지 출력
+
+    // 페이지 번호 나열을 페이징 하기
     @GetMapping("sub6")
     public void sub6(Model model,
                      @RequestParam(value = "page", defaultValue = "1") Integer pageNumber,
