@@ -188,5 +188,38 @@ public class Controller27 {
     // 최신 주문 순 (ORDER BY OrderID DESC)
     // 각 페이지에 20개씩 주문이 조회되는 코드 작성
 
+    @GetMapping("sub6")
+    public void sub6(Model model,
+                     @RequestParam(value = "page", defaultValue = "1") Integer pageNumber,
+                     @RequestParam(value = "count", defaultValue = "20") Integer rowCount) throws SQLException {
+        String sql = """
+                SELECT *
+                FROM Orders
+                ORDER BY OrderID DESC
+                LIMIT ?, ?
+                """;
+
+        Connection conn = dataSource.getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setInt(1, (pageNumber - 1) * rowCount);
+        pstmt.setInt(2, rowCount);
+
+        ResultSet rs = pstmt.executeQuery();
+        try (conn; pstmt; rs) {
+            List<Order> list = new ArrayList<>();
+            while (rs.next()) {
+                Order order = new Order();
+                order.setId(rs.getString("OrderID"));
+                order.setOrderDate(rs.getString("OrderDate"));
+                order.setCustomerId(rs.getString("CustomerID"));
+                order.setEmployeeId(rs.getString("EmployeeID"));
+                order.setShipperId(rs.getString("ShipperID"));
+                list.add(order);
+            }
+            model.addAttribute("orderList", list);
+        }
+
+
+    }
 
 }
