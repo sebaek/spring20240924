@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +45,40 @@ public class Controller27 {
             }
             model.addAttribute("customerList", list);
         }
+    }
+
+    // Statement 객체는 SQL injection 위험 있음
+    // -> PreparedStatement 객체를 사용해야 함
+    @GetMapping("sub2")
+    public String sub2(Model model, String id) throws SQLException {
+        String sql = """
+                SELECT *
+                FROM Customers
+                WHERE CustomerId = ?
+                """;
+
+        Connection conn = dataSource.getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, id);
+        ResultSet rs = pstmt.executeQuery();
+
+        try (conn; pstmt; rs) {
+            List<Customer> list = new ArrayList<>();
+            while (rs.next()) {
+                Customer customer = new Customer();
+                customer.setPostalCode(rs.getString("PostalCode"));
+                customer.setName(rs.getString("CustomerName"));
+                customer.setContact(rs.getString("ContactName"));
+                customer.setAddress(rs.getString("Address"));
+                customer.setCity(rs.getString("City"));
+                customer.setCountry(rs.getString("Country"));
+                customer.setId(rs.getString("CustomerId"));
+                list.add(customer);
+            }
+            model.addAttribute("customerList", list);
+        }
+
+        return "/main27/sub1";
     }
 
 
