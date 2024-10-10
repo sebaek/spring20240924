@@ -187,7 +187,7 @@ public class Controller27 {
             if (prevPageNumber > 0) {
                 model.addAttribute("prevPageNumber", prevPageNumber);
             }
-            model.addAttribute("endPageNumber", endPageNumber);
+            model.addAttribute("endPageNumber", Math.min(endPageNumber, lastPageNumber));
             model.addAttribute("beginPageNumber", beginPageNumber);
 
         }
@@ -235,6 +235,8 @@ public class Controller27 {
 
     // 이전 버튼, 다음 버튼 만들기
     // 이전, 다음 버튼 적절히 출력
+
+    // 마지막 페이지 번호 목록이 최종페이지보다 크지 않도록
     @GetMapping("sub6")
     public void sub6(Model model,
                      @RequestParam(value = "page", defaultValue = "1") Integer pageNumber,
