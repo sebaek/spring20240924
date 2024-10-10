@@ -39,6 +39,11 @@
 </table>
 
 <div style="margin: 10px;">
+
+    <c:url value="/main27/sub5" var="pageLink">
+        <c:param name="page" value="${prevPageNumber}"/>
+    </c:url>
+    <a href="${pageLink}">&lt; 이전</a>
     <c:forEach begin="${beginPageNumber}" end="${endPageNumber}" var="pageNumber">
 
         <%--
@@ -55,6 +60,10 @@
             <a href="${pageLink}">${pageNumber}</a>
         </span>
     </c:forEach>
+    <c:url value="/main27/sub5" var="pageLink">
+        <c:param name="page" value="${nextPageNumber}"/>
+    </c:url>
+    <a href="${pageLink}">다음 &gt;</a>
 </div>
 </body>
 </html>

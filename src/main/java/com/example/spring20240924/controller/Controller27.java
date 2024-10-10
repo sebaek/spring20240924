@@ -175,6 +175,13 @@ public class Controller27 {
         // 페이지 번호의 시작(맨 왼쪽)값 (10개씩 보여줄 때)
         Integer beginPageNumber = endPageNumber - 9;
 
+        // 다음버튼 클릭시 사용될 페이지 번호
+        Integer nextPageNumber = endPageNumber + 1;
+        // 이전버튼 클릭시 사용될 페이지 번호
+        Integer prevPageNumber = beginPageNumber - 1;
+
+        model.addAttribute("nextPageNumber", nextPageNumber);
+        model.addAttribute("prevPageNumber", prevPageNumber);
         model.addAttribute("endPageNumber", endPageNumber);
         model.addAttribute("beginPageNumber", beginPageNumber);
 
@@ -219,6 +226,8 @@ public class Controller27 {
     // jsp에서 마지막 페이지 번호까지 출력
 
     // 페이지 번호 나열을 페이징 하기
+
+    // 이전 버튼, 다음 버튼 만들기
     @GetMapping("sub6")
     public void sub6(Model model,
                      @RequestParam(value = "page", defaultValue = "1") Integer pageNumber,
