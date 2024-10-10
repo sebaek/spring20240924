@@ -2,6 +2,7 @@ package com.example.spring20240924.controller;
 
 import com.example.spring20240924.dto.c26.Customer;
 import com.example.spring20240924.dto.c26.Product;
+import com.example.spring20240924.dto.c27.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -117,13 +118,33 @@ public class Controller27 {
     }
 
     @GetMapping("sub4")
-    public void sub4(Model model) throws SQLException {
+    public void sub4(Model model, String begin, String end) throws SQLException {
         String sql = """
                 SELECT *
                 FROM Orders
                 WHERE OrderDate BETWEEN ? AND ?
+                ORDER BY OrderDate
                 """;
-        
+        Connection conn = dataSource.getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, begin);
+        pstmt.setString(2, end);
+        ResultSet rs = pstmt.executeQuery();
+
+        try (conn; pstmt; rs) {
+            List<Order> list = new ArrayList<>();
+            while (rs.next()) {
+                Order order = new Order();
+                order.setId(rs.getString("OrderID"));
+                order.setOrderDate(rs.getString("OrderDate"));
+                order.setCustomerId(rs.getString("CustomerID"));
+                order.setEmployeeId(rs.getString("EmployeeID"));
+                order.setShipperId(rs.getString("ShipperID"));
+                list.add(order);
+            }
+            model.addAttribute("orderList", list);
+        }
+
     }
 
 }
