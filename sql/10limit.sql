@@ -27,5 +27,47 @@ ORDER BY BirthDate DESC
 LIMIT 2;
 
 # 가장 비싼 상품 10개
+SELECT *
+FROM Products
+ORDER BY Price DESC
+LIMIT 10;
 # 3번 카테고리에서 가장 저렴한 상품 5개
+SELECT *
+FROM Products
+WHERE CategoryID = 3
+ORDER BY Price ASC
+LIMIT 5;
 # 1번 고객이 가장 최근 주문한 주문
+SELECT *
+FROM Orders
+WHERE CustomerID = 1
+ORDER BY OrderDate DESC
+LIMIT 1;
+
+# LIMIT 수1 : 상위 (수1)개
+# LIMIT 수1, 수2 : (수1)번째부터 (수2)개, 단 수1은 0부터 시작
+SELECT *
+FROM Customers
+ORDER BY CustomerID
+LIMIT 3;
+SELECT *
+FROM Customers
+ORDER BY CustomerID
+LIMIT 3, 5; # 4번째부터 5개
+SELECT *
+FROM Employees
+ORDER BY BirthDate
+LIMIT 0, 1;
+
+# 두번째로 나이 많은 직원
+SELECT *
+FROM Employees
+ORDER BY BirthDate
+LIMIT 1, 1;
+# 세번째로 나이 많은 직원
+SELECT *
+FROM Employees
+ORDER BY BirthDate
+LIMIT 2, 1;
+
+# 페이지 나누기
