@@ -251,24 +251,30 @@ public class Controller27 {
             Integer numberOfRows = rs2.next() ? rs2.getInt(1) : 0;
             Integer lastPageNumber = (numberOfRows - 1) / rowCount + 1;
             model.addAttribute("lastPageNumber", lastPageNumber);
+
+            // 현재 페이지
+            model.addAttribute("currentPageNumber", pageNumber);
+            // 끝페이지
+            Integer endPageNumber = ((pageNumber - 1) / 7 + 1) * 7;
+            // 시작페이지
+            Integer beginPageNumber = endPageNumber - 6;
+            model.addAttribute("endPageNumber", endPageNumber);
+            model.addAttribute("beginPageNumber", beginPageNumber);
+
+            // 이전 버튼클릭시 페이지
+            Integer prevPageNumber = beginPageNumber - 1;
+            // 다음 버튼클릭시 페이지
+            Integer nextPageNumber = endPageNumber + 1;
+
+            if (prevPageNumber > 0) {
+                model.addAttribute("prevPageNumber", prevPageNumber);
+            }
+
+            if (nextPageNumber <= lastPageNumber) {
+                model.addAttribute("nextPageNumber", nextPageNumber);
+            }
+
         }
-        // 현재 페이지
-        model.addAttribute("currentPageNumber", pageNumber);
-        // 끝페이지
-        Integer endPageNumber = ((pageNumber - 1) / 7 + 1) * 7;
-        // 시작페이지
-        Integer beginPageNumber = endPageNumber - 6;
-        model.addAttribute("endPageNumber", endPageNumber);
-        model.addAttribute("beginPageNumber", beginPageNumber);
-
-        // 이전 버튼클릭시 페이지
-        Integer prevPageNumber = beginPageNumber - 1;
-        // 다음 버튼클릭시 페이지
-        Integer nextPageNumber = endPageNumber + 1;
-
-        model.addAttribute("prevPageNumber", prevPageNumber);
-        model.addAttribute("nextPageNumber", nextPageNumber);
-
         String sql = """
                 SELECT *
                 FROM Orders
