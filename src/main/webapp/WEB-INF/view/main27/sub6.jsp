@@ -2,6 +2,11 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <head>
+    <style>
+        .active {
+            background-color: yellow;
+        }
+    </style>
     <title>Title</title>
 </head>
 <body>
@@ -29,11 +34,13 @@
     </tbody>
 </table>
 <div style="margin: 10px;">
-    <c:forEach begin="1" end="${lastPageNumber}" var="pageNumber">
+    <c:forEach begin="${beginPageNumber}" end="${endPageNumber}" var="pageNumber">
         <c:url value="/main27/sub6" var="link">
             <c:param name="page" value="${pageNumber}"></c:param>
         </c:url>
-        <a href="${link}">${pageNumber}</a>
+        <span class="${currentPageNumber == pageNumber ? 'active' : ''}">
+            <a href="${link}">${pageNumber}</a>
+        </span>
     </c:forEach>
 </div>
 </body>

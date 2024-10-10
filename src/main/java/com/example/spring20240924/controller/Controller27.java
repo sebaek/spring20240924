@@ -236,6 +236,14 @@ public class Controller27 {
             Integer lastPageNumber = (numberOfRows - 1) / rowCount + 1;
             model.addAttribute("lastPageNumber", lastPageNumber);
         }
+        // 현재 페이지
+        model.addAttribute("currentPageNumber", pageNumber);
+        // 끝페이지
+        Integer endPageNumber = ((pageNumber - 1) / 7 + 1) * 7;
+        // 시작페이지
+        Integer beginPageNumber = endPageNumber - 6;
+        model.addAttribute("endPageNumber", endPageNumber);
+        model.addAttribute("beginPageNumber", beginPageNumber);
 
         String sql = """
                 SELECT *
