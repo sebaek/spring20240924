@@ -34,7 +34,7 @@
 </table>
 
 <div style="margin: 10px;">
-    <c:forEach begin="1" end="20" var="pageNumber">
+    <c:forEach begin="1" end="${lastPageNumber}" var="pageNumber">
 
         <%--
         link

@@ -152,6 +152,25 @@ public class Controller27 {
     public void sub5(Model model,
                      @RequestParam(value = "page", defaultValue = "1") Integer pageNumber,
                      @RequestParam(value = "page_count", defaultValue = "10") Integer pageCount) throws SQLException {
+        // 총 레코드 수 조회
+        String numberOfRowSQL = """
+                SELECT COUNT(*)
+                FROM Customers
+                """;
+        Connection conn2 = dataSource.getConnection();
+        PreparedStatement pstmt2 = conn2.prepareStatement(numberOfRowSQL);
+        ResultSet rs2 = pstmt2.executeQuery();
+        try (conn2; pstmt2; rs2;) {
+            // 총 레코드 수
+            Integer numberOfRows = rs2.next() ? rs2.getInt(1) : 0;
+            // 마지막 페이지 번호
+            Integer lastPageNumber = (numberOfRows - 1) / pageCount + 1;
+
+            model.addAttribute("lastPageNumber", lastPageNumber);
+        }
+
+
+        // 고객 목록 조회
         String sql = """
                 SELECT *
                 FROM Customers
@@ -188,6 +207,8 @@ public class Controller27 {
     // 최신 주문 순 (ORDER BY OrderID DESC)
     // 각 페이지에 20개씩 주문이 조회되는 코드 작성
 
+    // 마지막 페이지 구해서 Model로 넘겨주고
+    // jsp에서 마지막 페이지 번호까지 출력
     @GetMapping("sub6")
     public void sub6(Model model,
                      @RequestParam(value = "page", defaultValue = "1") Integer pageNumber,
