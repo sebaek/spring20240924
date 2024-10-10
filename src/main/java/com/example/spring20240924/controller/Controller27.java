@@ -184,5 +184,9 @@ public class Controller27 {
         }
     }
 
+    // 6번째 메소드
+    // 최신 주문 순 (ORDER BY OrderID DESC)
+    // 각 페이지에 20개씩 주문이 조회되는 코드 작성
+
 
 }
