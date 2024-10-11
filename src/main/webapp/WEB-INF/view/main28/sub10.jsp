@@ -5,6 +5,9 @@
     <title>Title</title>
 </head>
 <body>
+<c:if test="${not empty message}">
+    <h5 style="background-color: aqua">${message}</h5>
+</c:if>
 <h3>고객 조회 후 수정</h3>
 <form>
     고객 번호
