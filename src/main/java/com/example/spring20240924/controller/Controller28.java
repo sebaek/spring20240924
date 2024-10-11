@@ -84,4 +84,8 @@ public class Controller28 {
 
         return "redirect:/main28/sub3";
     }
+
+    @GetMapping("sub5")
+    public void sub5() {
+    }
 }
