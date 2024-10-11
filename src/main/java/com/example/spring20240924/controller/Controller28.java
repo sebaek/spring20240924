@@ -1,6 +1,7 @@
 package com.example.spring20240924.controller;
 
 import com.example.spring20240924.dto.c26.Customer;
+import com.example.spring20240924.dto.c26.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -141,4 +142,61 @@ public class Controller28 {
         rttr.addAttribute("id", id);
         return "redirect:/main28/sub5";
     }
+
+    // 상품을 상품번호로 조회하고
+    // 해당 상품을 삭제하는 로직 작성
+
+    @GetMapping("sub7")
+    public void sub7(String id, Model model) {
+        String sql = """
+                SELECT * 
+                FROM Products
+                WHERE ProductId = ?
+                """;
+        try {
+            Connection con = dataSource.getConnection();
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            try (con; pstmt) {
+                pstmt.setString(1, id);
+                ResultSet rs = pstmt.executeQuery();
+                if (rs.next()) {
+                    Product product = new Product();
+                    product.setUnit(rs.getString("Unit"));
+                    product.setPrice(rs.getString("Price"));
+                    product.setId(rs.getString("ProductId"));
+                    product.setName(rs.getString("ProductName"));
+                    product.setSupplierId(rs.getString("SupplierId"));
+                    product.setCategoryId(rs.getString("CategoryId"));
+                    model.addAttribute("product", product);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @PostMapping("sub8")
+    public String sub8(String id, RedirectAttributes rttr) {
+        String sql = """
+                DELETE FROM Products
+                WHERE ProductId = ?
+                """;
+        try {
+            Connection con = dataSource.getConnection();
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            try (con; pstmt) {
+                pstmt.setString(1, id);
+                int count = pstmt.executeUpdate();
+                if (count == 1) {
+                    rttr.addFlashAttribute("message", id + "번 상품 삭제되었습니다.");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        rttr.addAttribute("id", id);
+        return "redirect:/main28/sub7";
+    }
+
 }
