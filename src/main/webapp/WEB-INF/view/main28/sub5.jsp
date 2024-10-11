@@ -5,9 +5,12 @@
     <title>Title</title>
 </head>
 <body>
+<c:if test="${not empty message}">
+    <h5 style="background-color: skyblue">${message}</h5>
+</c:if>
 <h3>고객 조회</h3>
 <form>
-    <input type="number" placeholder="고객 번호" name="id">
+    <input value="${param.id}" type="number" placeholder="고객 번호" name="id">
     <button>조회</button>
 </form>
 <hr>
