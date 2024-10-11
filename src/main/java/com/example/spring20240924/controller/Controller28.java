@@ -199,4 +199,66 @@ public class Controller28 {
         return "redirect:/main28/sub7";
     }
 
+    @PostMapping("sub9")
+    public void sub9(Customer customer) {
+        String sql = """
+                UPDATE Customers
+                SET CustomerName = ?,
+                    ContactName = ?,
+                    Address = ?,
+                    City = ?,
+                    Country = ?,
+                    PostalCode = ?
+                WHERE CustomerId = ?
+                """;
+
+        try {
+            Connection con = dataSource.getConnection();
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            try (con; pstmt) {
+                pstmt.setString(1, customer.getName());
+                pstmt.setString(2, customer.getContact());
+                pstmt.setString(3, customer.getAddress());
+                pstmt.setString(4, customer.getCity());
+                pstmt.setString(5, customer.getCountry());
+                pstmt.setString(6, customer.getPostalCode());
+                pstmt.setString(7, customer.getId());
+                pstmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @GetMapping("sub10")
+    public void sub10(String id, Model model) {
+        String sql = """
+                SELECT *
+                FROM Customers
+                WHERE CustomerId = ?
+                """;
+
+        try {
+            Connection con = dataSource.getConnection();
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            try (con; pstmt) {
+                pstmt.setString(1, id);
+                ResultSet rs = pstmt.executeQuery();
+                if (rs.next()) {
+                    Customer customer = new Customer();
+                    customer.setId(rs.getString("CustomerId"));
+                    customer.setName(rs.getString("CustomerName"));
+                    customer.setContact(rs.getString("ContactName"));
+                    customer.setAddress(rs.getString("Address"));
+                    customer.setCity(rs.getString("City"));
+                    customer.setCountry(rs.getString("Country"));
+                    customer.setPostalCode(rs.getString("PostalCode"));
+                    model.addAttribute("customer", customer);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
