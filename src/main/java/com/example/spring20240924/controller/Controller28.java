@@ -265,4 +265,9 @@ public class Controller28 {
         }
     }
 
+
+    // 직원 정보 조회 후 수정하는
+    // 2개의 메소드와 jsp, dto 만들기
+
+
 }
