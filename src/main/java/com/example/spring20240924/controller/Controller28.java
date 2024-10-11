@@ -3,6 +3,7 @@ package com.example.spring20240924.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.sql.DataSource;
@@ -17,7 +18,7 @@ public class Controller28 {
     DataSource dataSource;
 
     // /main28/sub1?name=흥민&contact=득점왕
-    @GetMapping("sub1")
+    @PostMapping("sub1")
     public void sub1(String name, String contact) {
         String sql = """
                 INSERT INTO Customers
@@ -39,4 +40,12 @@ public class Controller28 {
             e.printStackTrace();
         }
     }
+
+    @GetMapping("sub2")
+    public void sub2() {
+
+    }
+
+    // get /main28/sub3 은 상품입력 form 이 있는 jsp로 forward
+    // post /main28/sub4 은 새 상품을 insert하는 로직 실
 }
