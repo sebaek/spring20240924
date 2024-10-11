@@ -2,6 +2,7 @@ package com.example.spring20240924.controller;
 
 import com.example.spring20240924.dto.c26.Customer;
 import com.example.spring20240924.dto.c26.Product;
+import com.example.spring20240924.dto.c28.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -268,6 +269,69 @@ public class Controller28 {
 
     // 직원 정보 조회 후 수정하는
     // 2개의 메소드와 jsp, dto 만들기
+    @GetMapping("sub11")
+    public void sub11(String id, Model model) {
+        String sql = """
+                SELECT *
+                FROM Employees
+                WHERE EmployeeId = ?
+                """;
+        try {
+            Connection con = dataSource.getConnection();
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            try (con; pstmt) {
+                pstmt.setString(1, id);
+                ResultSet rs = pstmt.executeQuery();
+                if (rs.next()) {
+                    Employee e = new Employee();
+                    e.setId(rs.getString("EmployeeId"));
+                    e.setBirthDate(rs.getString("BirthDate"));
+                    e.setFirstName(rs.getString("FirstName"));
+                    e.setLastName(rs.getString("LastName"));
+                    e.setNotes(rs.getString("Notes"));
+                    e.setPhoto(rs.getString("Photo"));
 
+                    model.addAttribute("employee", e);
 
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @PostMapping("sub12")
+    public String sub12(Employee employee, RedirectAttributes rttr) {
+        String sql = """
+                UPDATE Employees
+                SET FirstName = ?,
+                    LastName = ?,
+                    Notes = ?,
+                    Photo = ?,
+                    BirthDate = ?
+                WHERE EmployeeId = ?
+                """;
+        try {
+            Connection con = dataSource.getConnection();
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            try (con; pstmt) {
+                pstmt.setString(1, employee.getFirstName());
+                pstmt.setString(2, employee.getLastName());
+                pstmt.setString(3, employee.getNotes());
+                pstmt.setString(4, employee.getPhoto());
+                pstmt.setString(5, employee.getBirthDate());
+                pstmt.setString(6, employee.getId());
+
+                pstmt.executeUpdate();
+                rttr.addFlashAttribute("message", employee.getId() + "번 직원 정보가 수정되었습니다.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        rttr.addAttribute("id", employee.getId());
+
+        return "redirect:/main28/sub11";
+
+    }
 }

@@ -40,3 +40,7 @@ DESC Customers;
 SELECT *
 FROM Customers
 WHERE CustomerID = 12;
+
+
+SELECT *
+FROM Employees;
