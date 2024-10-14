@@ -56,3 +56,107 @@ CREATE TABLE my_table6
     name    VARCHAR(200),
     city    VARCHAR(100)
 );
+
+
+# 숫자형
+CREATE TABLE my_table7
+(
+    price VARCHAR(10)
+);
+INSERT INTO my_table7
+    (price) VALUE ('1000');
+INSERT INTO my_table7
+    (price) VALUE (2000);
+INSERT INTO my_table7
+    (price) VALUE ('천원');
+
+# INT, INTEGER
+# -2147483648 ~ 2147483647
+CREATE TABLE my_table8
+(
+    price INT
+);
+INSERT INTO my_table8
+    (price) VALUE (1000);
+INSERT INTO my_table8
+    (price) VALUE ('2000');
+INSERT INTO my_table8
+    (price) VALUE ('천원');
+INSERT INTO my_table8
+    (price) VALUE (50.12);
+SELECT *
+FROM my_table8;
+
+# DEC, DECIMAL
+# 고정된 실수형
+# DEC(총숫자 갯수, 소숫점 이후 숫자 개수)
+CREATE TABLE my_table9
+(
+    col1 DEC(3, 1),
+    col2 DEC(5, 2)
+);
+INSERT INTO my_table9
+    (col1) VALUE (31.4);
+INSERT INTO my_table9
+    (col1) VALUE (3.14); -- 잘림
+INSERT INTO my_table9
+    (col1) VALUE (314.1); -- x
+INSERT INTO my_table9
+    (col1) VALUE (314); -- x
+SELECT *
+FROM my_table9;
+
+# my_table10 만들기
+# price, score, age, length, width, height
+CREATE TABLE my_table10
+(
+    price  DEC(10, 2),
+    score  DEC(4, 2),
+    age    INT,
+    length DEC(20, 5),
+    width  DEC(20, 2),
+    height DEC(20, 2)
+);
+
+
+# 날짜
+# DATE 년월일
+# YYYY-MM-DD
+CREATE TABLE my_table11
+(
+    col1 DATE
+);
+INSERT INTO my_table11
+    (col1) VALUE ('2024-10-14');
+INSERT INTO my_table11
+    (col1) VALUE ('1000-01-01');
+INSERT INTO my_table11
+    (col1) VALUE ('9999-12-31');
+SELECT *
+FROM my_table11;
+
+# DATETIME : 날짜시간
+# 'YYYY-MM-DD HH:MM:SS.ffffff'
+
+CREATE TABLE my_table12
+(
+    col1 DATETIME
+);
+INSERT INTO my_table12
+    (col1) VALUE ('2024-10-14 10:35:08');
+INSERT INTO my_table12
+    (col1) VALUE ('2024-10-14 10:35:08.123456');
+SELECT *
+FROM my_table12;
+
+CREATE TABLE my_table13
+(
+    col1 DATETIME(6)
+);
+INSERT INTO my_table13
+    (col1) VALUE ('2024-10-14 10:35:08.123456');
+SELECT *
+FROM my_table13;
+
+# my_table14
+# birth_date, start_date_time, end_date_time
