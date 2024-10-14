@@ -22,3 +22,10 @@ CREATE TABLE my_table25
 
 # my_table26
 # ssn, name, age, address
+CREATE TABLE my_table26
+(
+    ssn     VARCHAR(13) UNIQUE NOT NULL,
+    name    VARCHAR(20)        NOT NULL,
+    age     INT DEFAULT 0,
+    address VARCHAR(300)
+);
