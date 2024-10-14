@@ -19,3 +19,12 @@ ALTER TABLE my_table29
     ADD COLUMN email VARCHAR(50) NOT NULL;
 
 # my_table29에 새 컬럼 country 추가
+ALTER TABLE my_table29
+    ADD COLUMN country VARCHAR(50) NOT NULL;
+
+# 중간에 컬럼 추가하기
+ALTER TABLE my_table29
+    ADD COLUMN city VARCHAR(10) AFTER address;
+ALTER TABLE my_table29
+    ADD COLUMN ssn VARCHAR(10) FIRST;
+
