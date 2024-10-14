@@ -48,5 +48,11 @@ CREATE TABLE my_table5
 # my_table6 만들기
 # 4개의 컬럼
 # 각 컬럼의 데이터타입은 문자열 이고
-# 컬럼명과, 허용되는 문자열 길이은 스스로 정해보기
-
+# 컬럼명과, 허용되는 문자열 길이는 스스로 정해보기
+CREATE TABLE my_table6
+(
+    address VARCHAR(300),
+    email   VARCHAR(300),
+    name    VARCHAR(200),
+    city    VARCHAR(100)
+);
