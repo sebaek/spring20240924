@@ -176,7 +176,17 @@ SELECT *
 FROM db1.my_table11;
 
 
-
+USE db1;
+CREATE TABLE my_table15
+(
+    col1 VARCHAR(300),
+    col2 INT,
+    col3 DEC(15, 2),
+    col4 DATE,
+    col5 DATETIME
+);
+SELECT *
+FROM my_table15;
 
 
 
