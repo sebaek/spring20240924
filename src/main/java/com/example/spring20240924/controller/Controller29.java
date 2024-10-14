@@ -2,10 +2,14 @@ package com.example.spring20240924.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Controller
 @RequestMapping("main29")
@@ -49,14 +53,50 @@ public class Controller29 {
                 Integer col2 = rs.getInt("col2");
                 Double col3 = rs.getDouble("col3");
                 Date col4 = rs.getDate("col4");
+                LocalDate col41 = rs.getDate("col4").toLocalDate();
                 Timestamp col5 = rs.getTimestamp("col5");
+                LocalDateTime col51 = rs.getTimestamp("col5").toLocalDateTime();
 
                 System.out.println("col1 = " + col1);
                 System.out.println("col2 = " + col2);
                 System.out.println("col3 = " + col3);
                 System.out.println("col4 = " + col4);
                 System.out.println("col5 = " + col5);
+
+                System.out.println("col41 = " + col41);
+                System.out.println("col51 = " + col51);
             }
+        }
+
+    }
+
+
+    @GetMapping("sub3")
+    public void sub3() throws SQLException {
+
+    }
+
+    @PostMapping("sub4")
+    public void sub4(String val1,
+                     Integer val2,
+                     Double val3,
+                     LocalDate val4,
+                     LocalDateTime val5) throws SQLException {
+        String sql = """
+                INSERT INTO db1.my_table15
+                (col1, col2, col3, col4, col5)
+                VALUES
+                (?, ?, ?, ?, ?)
+                """;
+        Connection conn = dataSource.getConnection();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        try (conn; ps) {
+            ps.setString(1, val1);
+            ps.setInt(2, val2);
+            ps.setDouble(3, val3);
+            ps.setDate(4, Date.valueOf(val4));
+            ps.setTimestamp(5, Timestamp.valueOf(val5));
+            ps.executeUpdate();
         }
 
     }
