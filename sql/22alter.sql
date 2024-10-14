@@ -15,5 +15,17 @@ ALTER TABLE my_table29
     MODIFY COLUMN ssn VARCHAR(10) NOT NULL DEFAULT '0000' UNIQUE;
 
 DESC my_table29;
+
+UPDATE my_table29
+SET address = 'lon'
+WHERE address = 'london';
 # address 컬럼의 자료형 varchar(3)으로 변경
 # not null 유지
+ALTER TABLE my_table29
+    MODIFY COLUMN address VARCHAR(3) NOT NULL;
+
+# 컬럼 삭제
+# 매우 주의!
+ALTER TABLE my_table29
+    DROP COLUMN city;
+
