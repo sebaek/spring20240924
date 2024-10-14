@@ -26,6 +26,11 @@ INSERT INTO my_table17
 
 DESC my_table17;
 
-# my_table17 생성
+# my_table18 생성
 # name (문자열), price (정수)
 # name은 꼭 값이 있어야 함
+CREATE TABLE my_table18
+(
+    name  VARCHAR(100) NOT NULL,
+    price INT
+);
