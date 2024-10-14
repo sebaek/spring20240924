@@ -189,6 +189,16 @@ SELECT *
 FROM my_table15;
 
 
+CREATE TABLE my_table16
+(
+    title     VARCHAR(100),
+    price     INT,
+    score     DEC(2, 1),
+    published DATE,
+    inserted  DATETIME
+);
+SELECT *
+FROM my_table16;
 
 
 

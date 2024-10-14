@@ -19,7 +19,7 @@
     </div>
     <div>
         평점
-        <input type="number" name="score" size="0.1">
+        <input type="number" name="score" step="0.1">
     </div>
     <div>
         출판일
