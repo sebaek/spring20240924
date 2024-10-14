@@ -160,3 +160,9 @@ FROM my_table13;
 
 # my_table14
 # birth_date, start_date_time, end_date_time
+CREATE TABLE my_table14
+(
+    birth_date      DATE,
+    start_date_time DATETIME,
+    end_date_time   DATETIME(6)
+);
