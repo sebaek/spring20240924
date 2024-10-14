@@ -29,3 +29,8 @@ ALTER TABLE my_table29
 ALTER TABLE my_table29
     DROP COLUMN city;
 
+# isbn, 제목, 저자, 가격, 출판일
+# 테이블(book) 만들기
+# Controller29, 7,8번째 메소드 작성해서(jsp도)
+# 새 책을 입력하는 프로그램 만들기
+
