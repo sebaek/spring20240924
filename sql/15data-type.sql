@@ -166,3 +166,20 @@ CREATE TABLE my_table14
     start_date_time DATETIME,
     end_date_time   DATETIME(6)
 );
+
+# 다른 스키마(데이터베이스)에 있는 테이블 사용하기
+SELECT *
+FROM w3schools.Products;
+
+USE w3schools;
+SELECT *
+FROM db1.my_table11;
+
+
+
+
+
+
+
+
+
