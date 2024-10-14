@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.sql.DataSource;
-import java.sql.SQLException;
+import java.sql.*;
 
 @Controller
 @RequestMapping("main29")
@@ -21,6 +21,15 @@ public class Controller29 {
                 VALUES
                 (?, ?, ?, ?, ?)
                 """;
-        
+        Connection conn = dataSource.getConnection();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        try (conn; ps) {
+            ps.setString(1, "some data");
+            ps.setInt(2, 5678);
+            ps.setDouble(3, 12345.67);
+            ps.setDate(4, Date.valueOf("2024-10-14"));
+            ps.setTimestamp(5, Timestamp.valueOf("2024-10-15 11:18:50"));
+            ps.executeUpdate();
+        }
     }
 }
