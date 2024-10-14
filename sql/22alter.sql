@@ -34,3 +34,13 @@ ALTER TABLE my_table29
 # Controller29, 7,8번째 메소드 작성해서(jsp도)
 # 새 책을 입력하는 프로그램 만들기
 
+CREATE TABLE book
+(
+    isbn      VARCHAR(20) UNIQUE NOT NULL,
+    title     VARCHAR(200)       NOT NULL,
+    author    VARCHAR(200)       NOT NULL,
+    price     INT                         DEFAULT 0,
+    published DATE               NOT NULL DEFAULT NOW()
+);
+SELECT *
+FROM book;
