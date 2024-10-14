@@ -100,4 +100,25 @@ public class Controller29 {
         }
 
     }
+
+    @GetMapping("sub5")
+    public void sub5() throws SQLException {
+    }
+
+    // my_table16 생성
+    // sub6 메소드 완성
+    @PostMapping("sub6")
+    public void sub6(String title,
+                     String price,
+                     String score,
+                     String published,
+                     String inserted) throws SQLException {
+        String sql = """
+                INSERT INTO db1.my_table16
+                (title, price, score, published, inserted)
+                VALUES
+                (?, ?, ?, ?, ?)
+                """;
+
+    }
 }
