@@ -45,3 +45,13 @@ CREATE TABLE my_table2
 # my_table3 만들기
 # 3개의 컬럼 VARCHAR(100)
 # person_id, last_name, first_name
+CREATE TABLE my_table3
+(
+    person_id  VARCHAR(100),
+    last_name  VARCHAR(100),
+    first_name VARCHAR(100)
+);
+
+# 테이블 구조 확인
+DESCRIBE my_table3;
+DESC my_table3;
