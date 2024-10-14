@@ -32,4 +32,32 @@ public class Controller29 {
             ps.executeUpdate();
         }
     }
+
+    @RequestMapping("sub2")
+    public void sub2() throws SQLException {
+        String sql = """
+                SELECT *
+                FROM db1.my_table15
+                LIMIT 1
+                """;
+        Connection conn = dataSource.getConnection();
+        PreparedStatement ps = conn.prepareStatement(sql);
+        try (conn; ps) {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String col1 = rs.getString("col1");
+                Integer col2 = rs.getInt("col2");
+                Double col3 = rs.getDouble("col3");
+                Date col4 = rs.getDate("col4");
+                Timestamp col5 = rs.getTimestamp("col5");
+
+                System.out.println("col1 = " + col1);
+                System.out.println("col2 = " + col2);
+                System.out.println("col3 = " + col3);
+                System.out.println("col4 = " + col4);
+                System.out.println("col5 = " + col5);
+            }
+        }
+
+    }
 }
