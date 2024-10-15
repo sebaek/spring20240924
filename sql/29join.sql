@@ -72,3 +72,29 @@ FROM Orders o
          RIGHT JOIN Customers c
                     ON o.CustomerID = c.CustomerID
 WHERE o.CustomerID IS NULL;
+
+INSERT INTO Employees
+    (LastName, FirstName, BirthDate, Photo, Notes)
+VALUES ('흥민', '손', '2000-01-01', '1234', 'qwer');
+# 주문을 처리한 적 없는 직원명 조회 (Orders, Employees)
+SELECT e.FirstName, e.LastName
+FROM Orders o
+         RIGHT JOIN Employees e
+                    ON o.EmployeeID = e.EmployeeID
+WHERE o.OrderID IS NULL;
+
+INSERT INTO Products
+    (ProductName, SupplierID, CategoryID, Unit, Price)
+VALUES ('핸드폰', 1, 1, '1개', 3000);
+# 주문된 적 없는 상품명 조회 (OrderDetails, Products)
+SELECT p.ProductName
+FROM OrderDetails od
+         RIGHT JOIN Products p
+                    ON od.ProductID = p.ProductID
+WHERE od.OrderDetailID IS NULL;
+
+SELECT p.ProductName
+FROM Products p
+         LEFT JOIN OrderDetails od
+                   ON od.ProductID = p.ProductID
+WHERE od.OrderDetailID IS NULL;
