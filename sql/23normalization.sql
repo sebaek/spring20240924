@@ -110,3 +110,94 @@ FROM my_table34;
 INSERT INTO my_table34
     (name)
 VALUES ('park');
+
+
+# 모든 속성은 단일 값을 가져야한다(원자성, atomic)
+DROP TABLE my_table35;
+CREATE TABLE my_table35
+(
+    id   INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(30)
+);
+CREATE TABLE my_table36
+(
+    id     INT PRIMARY KEY AUTO_INCREMENT,
+    t35_id INT,
+    skill  VARCHAR(100)
+);
+# kim : java, css, js
+# lee : java, html
+# park : js, react
+# choi : java
+INSERT INTO my_table35
+    (name)
+VALUES ('kim'),
+       ('lee'),
+       ('park'),
+       ('choi');
+SELECT *
+FROM my_table35;
+SELECT *
+FROM my_table36;
+INSERT INTO my_table36
+    (t35_id, skill)
+VALUES (1, 'java'),
+       (1, 'css'),
+       (1, 'js'),
+       (2, 'java'),
+       (2, 'html'),
+       (3, 'js'),
+       (3, 'react'),
+       (4, 'java');
+
+SELECT *
+FROM my_table36;
+
+# 정규화로 여러 테이블이 생성되었을 때
+# 여러 테이블을 결합(JOIN) 해서 조회
+SELECT t35.name, t36.skill
+FROM my_table35 t35
+         JOIN my_table36 t36 ON t35.id = t36.t35_id;
+
+CREATE TABLE my_table37
+(
+    id   INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(30)
+);
+CREATE TABLE my_table38
+(
+    t37_id INT REFERENCES my_table37 (id), -- Foreign Key (외래키)
+    tel    VARCHAR(30)
+);
+INSERT INTO my_table37
+    (name)
+VALUES ('kim'),
+       ('lee');
+SELECT *
+FROM my_table37;
+INSERT INTO my_table38
+    (t37_id, tel)
+VALUES (1, '222-3333'),
+       (1, '333-4444'),
+       (2, '555-6666');
+SELECT *
+FROM my_table38;
+INSERT INTO my_table38
+    (t37_id, tel)
+VALUES (3, '999-0000');
+
+
+
+#   부분적 함수 종속이 없어야함
+# 부분적 함수 종속 : 키가 아닌 컬럼이 키컬럼 일부에 종속됨
+
+# -> 인위적 PK 컬럼 생성시 2NF 만족
+
+
+#   이행적 종속이 없어야함
+# 이행적 종속 : 키가 아닌 컬럼끼리 종속
+# -> 새 테이블 생성
+
+
+
+
