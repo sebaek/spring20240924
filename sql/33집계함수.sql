@@ -92,4 +92,22 @@ FROM Customers c
                    ON c.CustomerID = o.CustomerID
 WHERE o.OrderID IS NULL;
 
+# 1997년 1월에 주문 처리건수를 직원별로 조회
+SELECT e.EmployeeID, e.FirstName, e.LastName, COUNT(o.OrderID)
+FROM Employees e
+         LEFT JOIN Orders o
+                   ON e.EmployeeID = o.EmployeeID
+WHERE OrderDate BETWEEN '1997-01-01' AND '1997-01-31'
+GROUP BY e.EmployeeID;
+
+SELECT e.EmployeeID, e.FirstName, COUNT(OrderID)
+FROM (SELECT *
+      FROM Orders
+      WHERE OrderDate BETWEEN '1997-01-01' AND '1997-01-31') AS JanOrders
+         RIGHT JOIN Employees e
+                    ON JanOrders.EmployeeID = e.EmployeeID
+GROUP BY e.EmployeeID
+;
+
+
 
