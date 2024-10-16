@@ -88,6 +88,26 @@ WHERE Price > (SELECT AVG(Price)
 
 
 # 평균 처리건수보다 많은 주문을 처리한 직원 목록 조회
+SELECT COUNT(OrderID)
+FROM Orders;
+SELECT COUNT(EmployeeID)
+FROM Employees;
+SELECT ((SELECT COUNT(OrderID)
+         FROM Orders) / (SELECT COUNT(EmployeeID)
+                         FROM Employees));
+
+SELECT e.EmployeeID, e.LastName, e.FirstName, COUNT(o.OrderID) 건
+FROM Employees e
+         JOIN Orders o
+              ON e.EmployeeID = o.EmployeeID
+GROUP BY e.EmployeeID
+HAVING 건 > (SELECT ((SELECT COUNT(OrderID)
+                     FROM Orders) / (SELECT COUNT(EmployeeID)
+                                     FROM Employees)))
+ORDER BY 건 DESC;
+
+# 고객이 가장 많은 국가의 고객 목록
+
 
 
 
