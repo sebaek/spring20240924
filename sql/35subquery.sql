@@ -107,6 +107,20 @@ HAVING 건 > (SELECT ((SELECT COUNT(OrderID)
 ORDER BY 건 DESC;
 
 # 고객이 가장 많은 국가의 고객 목록
+SELECT Country, COUNT(CustomerID) 고객수
+FROM Customers
+GROUP BY Country
+ORDER BY 고객수 DESC;
+
+SELECT *
+FROM Customers
+WHERE Country =
+      (SELECT Country
+       FROM (SELECT Country, COUNT(CustomerID) 고객수
+             FROM Customers
+             GROUP BY Country
+             ORDER BY 고객수 DESC
+             LIMIT 1) AS MaxCustomer);
 
 
 
