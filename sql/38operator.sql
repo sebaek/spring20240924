@@ -45,5 +45,16 @@ FROM Customers c
 GROUP BY c.CustomerID;
 
 # 1998년 3월에 가장 많은 매출을 올린 직원 조회
-
+SELECT CONCAT(e.FirstName, ' ', e.LastName) name, SUM(p.Price * od.Quantity) 매출
+FROM Orders o
+         JOIN Employees e
+              ON o.EmployeeID = e.EmployeeID
+         JOIN OrderDetails od
+              ON od.OrderID = o.OrderID
+         JOIN Products p
+              ON od.ProductID = p.ProductID
+WHERE o.OrderDate BETWEEN '1998-03-01' AND '1998-03-31'
+GROUP BY e.EmployeeID
+ORDER BY 매출 DESC
+LIMIT 1;
 
