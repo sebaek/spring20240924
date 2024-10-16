@@ -70,5 +70,26 @@ GROUP BY c.CategoryID;
 
 # 직원별 주문처리건수 (Employees, Orders)
 # 직원의 이름과 처리건수 조회, 직원 first name 순 정렬
+SELECT e.EmployeeID, e.FirstName, e.LastName, COUNT(o.OrderID)
+FROM Employees e
+         JOIN Orders o
+              ON e.EmployeeID = o.EmployeeID
+GROUP BY e.EmployeeID
+ORDER BY e.FirstName;
+
+# 고객별 주문 건수(주문하지 않은 고객도 포함)
+SELECT c.CustomerID, c.CustomerName, COUNT(o.OrderID)
+FROM Orders o
+         RIGHT JOIN Customers c
+                    ON o.CustomerID = c.CustomerID
+GROUP BY c.CustomerID
+ORDER BY 3 DESC;
+
+# 한번도 주문하지 않은 고객
+SELECT *
+FROM Customers c
+         LEFT JOIN Orders o
+                   ON c.CustomerID = o.CustomerID
+WHERE o.OrderID IS NULL;
 
 
