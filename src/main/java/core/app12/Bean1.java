@@ -8,5 +8,5 @@ import org.springframework.stereotype.Component;
 @Getter
 @RequiredArgsConstructor
 public class Bean1 {
-    final Bean2 bean2;
+    private final Bean2 bean2;
 }
