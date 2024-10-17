@@ -198,8 +198,40 @@ public class Controller30 {
     public String sub5() {
         // 1. kim 계좌에서 1000 차감
         // 2. lee 계좌에서 1000 증액
-
         // 단. 모두 성공(commit), 모두 실패(rollback)
+        String sql1 = """
+                UPDATE db1.my_table58
+                SET money = money - 1000
+                WHERE name = 'kim'
+                """;
+        String sql2 = """
+                UPDATE db1.my_table58
+                SET money = money + 1000
+                WHERE name = 'lee'
+                """;
+        try (Connection conn = dataSource.getConnection();) {
+            try {
+
+                conn.setAutoCommit(false);
+                PreparedStatement ps1 = conn.prepareStatement(sql1);
+                PreparedStatement ps2 = conn.prepareStatement(sql2);
+
+                try (ps1; ps2) {
+                    ps1.executeUpdate();
+                    ps2.executeUpdate();
+                }
+                conn.commit();
+            } catch (Exception e) {
+                try {
+                    conn.rollback();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
 
         return null;
     }
