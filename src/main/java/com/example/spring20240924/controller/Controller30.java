@@ -106,12 +106,65 @@ public class Controller30 {
         Connection conn = null;
         try {
             conn = dataSource.getConnection();
+            conn.setAutoCommit(false);
             PreparedStatement ps = conn.prepareStatement(sql1);
             ps.setInt(1, t);
             ps.executeUpdate();
 
             int a = 0;
             int b = 5 / a; // Exception
+
+            PreparedStatement pss = conn.prepareStatement(sql2);
+            pss.setInt(1, t);
+            pss.executeUpdate();
+
+            conn.commit();
+
+            pss.close();
+            ps.close();
+
+        } catch (Exception e) {
+            try {
+                conn.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        return null;
+    }
+
+    @GetMapping("sub4")
+    public String sub4() {
+        int t = 500;
+        String sql1 = """
+                UPDATE db1.my_table58
+                SET money = money - ?
+                WHERE name = 'kim'
+                """;
+        String sql2 = """
+                UPDATE db1.my_table58
+                SET money = money + ?
+                WHERE name = 'lee'
+                """;
+
+        Connection conn = null;
+        try {
+            conn = dataSource.getConnection();
+            conn.setAutoCommit(false);
+            PreparedStatement ps = conn.prepareStatement(sql1);
+            ps.setInt(1, t);
+            ps.executeUpdate();
+
+//            int a = 0;
+//            int b = 5 / a; // Exception
 
             PreparedStatement pss = conn.prepareStatement(sql2);
             pss.setInt(1, t);
