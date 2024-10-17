@@ -27,5 +27,11 @@ public class Controller31 {
         System.out.println("productName = " + productName);
     }
 
-    
+    @GetMapping("sub3")
+    public void sub3() {
+        // 3번 직원의 FirstName 조회
+        String employeeName = mapper01.getEmployeeName();
+        System.out.println("employeeName = " + employeeName);
+    }
+
 }

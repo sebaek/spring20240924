@@ -20,4 +20,10 @@ public interface Mapper01 {
             """)
     String getProductName();
 
+    @Select("""
+            SELECT FirstName
+            FROM Employees
+            WHERE EmployeeId = 3
+            """)
+    String getEmployeeName();
 }
