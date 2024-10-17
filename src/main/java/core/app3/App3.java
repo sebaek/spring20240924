@@ -12,7 +12,16 @@ public class App3 {
         BeanFactory factory = SpringApplication.run(App3.class, args);
         Service1 b1 = factory.getBean(Service1.class);
         Service2 b2 = factory.getBean(Service2.class);
-        System.out.println("b1 = " + b1); // 
+        System.out.println("b1 = " + b1); //
         System.out.println("b2 = " + b2);
+
+        Object b3 = factory.getBean("service1");
+        System.out.println("b3 = " + b3);
+
+        Object b4 = factory.getBean("service2");
+        System.out.println("b4 = " + b4);
+
+        Object b5 = factory.getBean("service111");
+        System.out.println("b5 = " + b5);
     }
 }
