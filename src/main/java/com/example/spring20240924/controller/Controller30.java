@@ -193,4 +193,15 @@ public class Controller30 {
         return null;
     }
 
+
+    @GetMapping("sub5")
+    public String sub5() {
+        // 1. kim 계좌에서 1000 차감
+        // 2. lee 계좌에서 1000 증액
+
+        // 단. 모두 성공(commit), 모두 실패(rollback)
+
+        return null;
+    }
+
 }
