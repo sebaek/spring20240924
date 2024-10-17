@@ -12,4 +12,12 @@ public interface Mapper01 {
             WHERE CustomerId = 1
             """)
     public String selectName();
+
+    @Select("""
+            SELECT ProductName
+            FROM Products
+            WHERE ProductId = 10
+            """)
+    String getProductName();
+
 }
