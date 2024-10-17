@@ -1,7 +1,7 @@
-package core.app6.service;
+package core.app7;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class Service1 {
+public class Bean2 {
 }
