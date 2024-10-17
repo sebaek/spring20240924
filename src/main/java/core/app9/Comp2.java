@@ -1,7 +1,7 @@
-package core.app10;
+package core.app9;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class Component2 {
+public class Comp2 {
 }
