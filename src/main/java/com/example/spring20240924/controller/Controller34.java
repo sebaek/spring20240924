@@ -127,4 +127,25 @@ public class Controller34 {
         System.out.println("orders = " + orders);
 
     }
+
+    @GetMapping("sub6")
+    public void sub6() {
+        // 1행 여러열 -> Map
+        // 1행 여러열 -> Dto
+
+        // 여러행 여러열 -> List<Map>
+        // 여러행 여러열 -> List<Dto>
+
+        // 여러행 여러열 -> List<Map>
+        List<Map<String, String>> r1 = mapper04.select22();
+        r1.forEach(System.out::println);
+
+        // 가장 비싼 상품 5개의 상품명, 카테고리명, 단위, 가격 조회/출력
+        // select23
+
+        // 10248번 주문의 상품과 수량, 가격 조회/출력
+        // select24
+        
+
+    }
 }

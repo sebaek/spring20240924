@@ -157,4 +157,11 @@ public interface Mapper04 {
             WHERE OrderId = 10248
             """)
     Order select21();
+
+    @Select("""
+            SELECT CustomerName name, Address address, PostalCode post
+            FROM Customers
+            LIMIT 3
+            """)
+    List<Map<String, String>> select22();
 }
