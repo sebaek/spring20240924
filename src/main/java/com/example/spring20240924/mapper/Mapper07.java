@@ -50,4 +50,12 @@ public interface Mapper07 {
             LIMIT 10
             """)
     List<Map<String, Object>> select2();
+
+    @Select("""
+            SELECT ProductId id, ProductName name, price
+            FROM Products
+            ORDER BY id DESC
+            LIMIT 10
+            """)
+    List<Map<String, Object>> select3();
 }

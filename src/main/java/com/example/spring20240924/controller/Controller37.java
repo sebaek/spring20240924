@@ -75,5 +75,19 @@ public class Controller37 {
 
     // 새상품 등록하는 로직 작성
     // /main37/sub6
+    @GetMapping("sub6")
+    public void sub6(Model model) {
+        model.addAttribute("productList", mapper07.select3());
+    }
+
+    @PostMapping("sub6")
+    public String sub6(String name, Double price, RedirectAttributes rttr) {
+        int i = mapper07.insert2(name, price);
+
+        rttr.addFlashAttribute("message", i + "개 상품 등록됨");
+
+        return "redirect:/main37/sub6";
+
+    }
 
 }
