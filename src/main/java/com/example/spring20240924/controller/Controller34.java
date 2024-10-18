@@ -154,4 +154,18 @@ public class Controller34 {
 
 
     }
+
+    @GetMapping("sub7")
+    public void sub7() {
+        // 여러행 여러열 -> List<Dto>
+
+        // 직원의 이름과 생일 조회/출력
+        // select25, Employee
+
+        // USA에 있는 공급자의 id, 이름, 전화번호 조회/출력
+        // select26, Supplier
+
+        // 1996년 7월 주문의 주문일, 고객명 조회/출력
+        // select27, Order
+    }
 }
