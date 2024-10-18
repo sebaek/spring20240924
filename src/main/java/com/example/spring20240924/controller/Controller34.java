@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDate;
+
 @Controller
 @RequestMapping("main34")
 @RequiredArgsConstructor
@@ -29,13 +31,17 @@ public class Controller34 {
         System.out.println("v = " + v);
 
         // 1번 직원의 LastName 조회
-        mapper04.select5();
+        String s2 = mapper04.select5();
 
         // 2번 상품의 CategoryId 조회
-        mapper04.select6();
+        Integer i = mapper04.select6();
 
         // 2번 직원의 생일 조회
-        mapper04.select7();
+        LocalDate birth = mapper04.select7();
+
+        System.out.println("s2 = " + s2);
+        System.out.println("i = " + i);
+        System.out.println("birth = " + birth);
 
     }
 }
