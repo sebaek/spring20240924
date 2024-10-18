@@ -6,8 +6,8 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface Mapper04 {
     @Select("""
-            SELECT ProdutName
-            FROM Produts
+            SELECT ProductName
+            FROM Products
             WHERE ProductId = 1
             """)
     String getProductName();

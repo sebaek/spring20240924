@@ -16,6 +16,7 @@ public class Controller34 {
     @GetMapping("sub1")
     public void sub1() {
         String name = mapper04.getProductName();
+        System.out.println(name);
 
     }
 }
