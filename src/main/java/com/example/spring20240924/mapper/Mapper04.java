@@ -3,6 +3,8 @@ package com.example.spring20240924.mapper;
 import org.apache.ibatis.annotations.*;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface Mapper04 {
@@ -58,4 +60,65 @@ public interface Mapper04 {
             WHERE EmployeeId = 2
             """)
     LocalDate select7();
+
+    @Select("""
+            SELECT DISTINCT Country
+            FROM Customers
+            """)
+    List<String> select8();
+
+    @Select("""
+            SELECT LastName
+            FROM Employees
+            """)
+    List<String> select9();
+
+    @Select("""
+            SELECT BirthDate
+            FROM Employees
+            """)
+    List<LocalDate> select10();
+
+    @Select("""
+            SELECT Price
+            FROM Products
+            ORDER BY Price DESC 
+            LIMIT 5
+            """)
+    List<Double> select11();
+
+    @Select("""
+            SELECT CustomerName, City, Country
+            FROM Customers
+            WHERE CustomerId = 1
+            """)
+    Map<String, String> select12();
+
+    @Select("""
+            SELECT CustomerName 이름, City 도시, Country 국가
+            FROM Customers
+            WHERE CustomerId = 1
+            """)
+    Map<String, String> select13();
+
+    @Select("""
+            SELECT ProductName name, Price, CategoryId
+            FROM Products
+            WHERE ProductId = 1
+            """)
+    Map<String, Object> select14();
+
+    @Select("""
+            SELECT CONCAT(FirstName, ' ', LastName) name, BirthDate birth
+            FROM Employees
+            WHERE EmployeeId = 1
+            """)
+    Map<String, Object> select15();
+
+    @Select("""
+            SELECT CustomerName name, Address address, PostalCode post
+            FROM Customers
+            WHERE CustomerId = 3
+            """)
+    Map<String, Object> select16();
 }

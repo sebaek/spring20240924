@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("main34")
@@ -43,5 +45,64 @@ public class Controller34 {
         System.out.println("i = " + i);
         System.out.println("birth = " + birth);
 
+    }
+
+    @GetMapping("sub3")
+    public void sub3() {
+        List<String> list = mapper04.select8();
+
+        list.forEach(System.out::println);
+
+        System.out.println();
+        // 모든 직원의 LastName을 조회해서 출력
+        // select9
+        List<String> list1 = mapper04.select9();
+        list1.forEach(System.out::println);
+
+        System.out.println();
+        // 모든 직원의 BirthDate를 조회해서 출력
+        // select10
+        List<LocalDate> dates = mapper04.select10();
+        dates.forEach(System.out::println);
+
+        System.out.println();
+        // 가장 비싼 상품의 가격들 5개만 조회해서 출력
+        // select11
+        List<Double> doubles = mapper04.select11();
+        doubles.forEach(System.out::println);
+
+    }
+
+    @GetMapping("sub4")
+    public void sub4() {
+        // 1행 1열
+        // 여러행 1열
+
+        // 1행 여러열
+        Map<String, String> result1 = mapper04.select12();
+        System.out.println(result1);
+
+        Map<String, String> result2 = mapper04.select13();
+        System.out.println(result2);
+
+        Map<String, Object> result3 = mapper04.select14();
+        System.out.println(result3);
+
+        // select15
+        // 1번직원의 이름, 생일 조회
+        Map<String, Object> r4 = mapper04.select15();
+        System.out.println(r4);
+
+        // select16
+        // 3번고객의 이름, 주소, 우편번호 조회
+        Map<String, Object> r5 = mapper04.select16();
+        System.out.println(r5);
+
+
+    }
+
+    @GetMapping("sub5")
+    public void sub5() {
+        
     }
 }
