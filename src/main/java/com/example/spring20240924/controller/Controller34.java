@@ -1,5 +1,7 @@
 package com.example.spring20240924.controller;
 
+import com.example.spring20240924.dto.c34.Customer;
+import com.example.spring20240924.dto.c34.Product;
 import com.example.spring20240924.mapper.Mapper04;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -103,6 +105,20 @@ public class Controller34 {
 
     @GetMapping("sub5")
     public void sub5() {
-        
+        // 1행 여러열
+        Customer c = mapper04.select17();
+        System.out.println("c = " + c);
+
+        Product p = mapper04.select18();
+        System.out.println("p = " + p);
+
+        // 3번 직원의 이름과 생일 조회/출력
+        // select19, dto
+
+        // 2번 공급자의 id, 이름, 전화번호 조회/출력
+        // select20, dto
+
+        // 10248번 주문의 주문일, 고객명 조회/출력
+        // select21, dto
     }
 }
