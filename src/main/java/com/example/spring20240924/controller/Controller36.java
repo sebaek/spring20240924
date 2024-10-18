@@ -61,5 +61,15 @@ public class Controller36 {
         l2.forEach(System.out::println);
     }
 
-    
+    // /main36/sub3?id=5
+    @GetMapping("sub3")
+    public void sub3(Integer id) {
+        String name = mapper06.select01(id);
+        System.out.println("name = " + name);
+    }
+
+    // /main36/sub4?c1=germany&c2=usa
+    // select03 실행 후 조회결과 출력하는 4번째 메소드 작성
+
+
 }
