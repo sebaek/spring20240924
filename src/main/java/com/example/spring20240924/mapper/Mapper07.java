@@ -20,5 +20,5 @@ public interface Mapper07 {
             DELETE FROM Customers
             WHERE CustomerId = #{id}
             """)
-    void delete1(Integer id);
+    int delete1(Integer id);
 }
