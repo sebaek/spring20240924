@@ -20,4 +20,10 @@ public class Controller35 {
                 .forEach(System.out::println);
     }
 
+    @GetMapping("sub2")
+    public void sub2() {
+        mapper05.select2()
+                .forEach(System.out::println);
+    }
+
 }

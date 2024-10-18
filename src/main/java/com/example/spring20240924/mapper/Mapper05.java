@@ -9,8 +9,19 @@ import java.util.List;
 @Mapper
 public interface Mapper05 {
     @Select("""
-            SELECT *
+            SELECT student_id studentId,
+                   model_number modelNumber,
+                   product_name productName,
+                   birth_date birthDate,
+                   inserted inserted,
+                   score score
             FROM db1.my_table59
             """)
     List<Dto59> select1();
+
+    @Select("""
+            SELECT *
+            FROM db1.my_table59
+            """)
+    List<Dto59> select2();
 }
