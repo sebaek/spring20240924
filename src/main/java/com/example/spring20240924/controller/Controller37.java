@@ -43,7 +43,18 @@ public class Controller37 {
     }
 
     // 새 상품(상품명, 가격)을 입력하는 코드 작성
-    // 4번째 메소드, mapper.insert2 메소
+    // 4번째 메소드, mapper.insert2 메소드
+    @GetMapping("sub4")
+    public void sub4(String name,
+                     Double price) {
+        int c = mapper07.insert2(name, price);
+        System.out.println(c + "개 상품 정보 입력됨");
+    }
+
+    @GetMapping("sub5")
+    public void sub5() {
+        
+    }
 
 
 }

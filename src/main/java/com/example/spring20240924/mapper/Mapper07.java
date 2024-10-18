@@ -35,4 +35,11 @@ public interface Mapper07 {
             VALUES (#{name}, #{city}, #{country})
             """)
     int insert1(String name, String city, String country);
+
+    @Insert("""
+            INSERT INTO Products
+            (ProductName, Price)
+            VALUES (#{name}, #{price})
+            """)
+    int insert2(String name, Double price);
 }
