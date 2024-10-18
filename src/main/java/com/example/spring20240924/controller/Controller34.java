@@ -140,12 +140,18 @@ public class Controller34 {
         List<Map<String, String>> r1 = mapper04.select22();
         r1.forEach(System.out::println);
 
+        System.out.println();
         // 가장 비싼 상품 5개의 상품명, 카테고리명, 단위, 가격 조회/출력
         // select23
+        List<Map<String, Object>> r2 = mapper04.select23();
+        r2.forEach(System.out::println);
 
+        System.out.println();
         // 10248번 주문의 상품과 수량, 가격 조회/출력
         // select24
-        
+        List<Map<String, Object>> r4 = mapper04.select24();
+        r4.forEach(System.out::println);
+
 
     }
 }

@@ -164,4 +164,20 @@ public interface Mapper04 {
             LIMIT 3
             """)
     List<Map<String, String>> select22();
+
+    @Select("""
+            SELECT ProductName, CategoryName, Unit, Price
+            FROM Products p JOIN Categories c ON p.CategoryId = c.CategoryId
+            ORDER BY Price DESC
+            LIMIT 5
+            """)
+    List<Map<String, Object>> select23();
+
+    @Select("""
+            SELECT ProductName, Quantity, Price 
+            FROM Orders o JOIN OrderDetails od ON o.OrderId = od.OrderId
+                          JOIN Products p ON od.ProductId = p.ProductId
+            WHERE o.OrderId = 10248
+            """)
+    List<Map<String, Object>> select24();
 }
