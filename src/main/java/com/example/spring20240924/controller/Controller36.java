@@ -68,8 +68,13 @@ public class Controller36 {
         System.out.println("name = " + name);
     }
 
-    // /main36/sub4?c1=germany&c2=usa
+    // /main36/sub4?city1=germany&city2=usa
     // select03 실행 후 조회결과 출력하는 4번째 메소드 작성
+    @GetMapping("sub4")
+    public void method4(String city1, String city2) {
+        mapper06.select03(city1, city2)
+                .forEach(System.out::println);
 
+    }
 
 }
