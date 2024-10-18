@@ -24,5 +24,17 @@ public class Controller36 {
         System.out.println();
         // 상품번호를 받아서 상품명을 조회/출력
         // select02
+        String n1 = mapper06.select02(1);
+        String n2 = mapper06.select02(2);
+        String n3 = mapper06.select02(3);
+
+        System.out.println("n1 = " + n1);
+        System.out.println("n2 = " + n2);
+        System.out.println("n3 = " + n3);
+    }
+
+    @GetMapping("sub2")
+    public void sub2() {
+        
     }
 }

@@ -12,4 +12,11 @@ public interface Mapper06 {
             WHERE CustomerID = #{id}
             """)
     String select01(Integer id);
+
+    @Select("""
+            SELECT ProductName
+            FROM Products
+            WHERE ProductID = #{i}
+            """)
+    String select02(int i);
 }
