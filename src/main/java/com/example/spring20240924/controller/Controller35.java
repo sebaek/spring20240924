@@ -16,7 +16,8 @@ public class Controller35 {
 
     @GetMapping("sub1")
     public void sub1() {
-
+        mapper05.select1()
+                .forEach(System.out::println);
     }
 
 }
