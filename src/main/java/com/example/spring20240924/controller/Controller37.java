@@ -4,8 +4,14 @@ import com.example.spring20240924.mapper.Mapper07;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("main37")
@@ -52,9 +58,22 @@ public class Controller37 {
     }
 
     @GetMapping("sub5")
-    public void sub5() {
-        
+    public void sub5(Model model) {
+        List<Map<String, Object>> customers = mapper07.select2();
+        model.addAttribute("customerList", customers);
     }
 
+    @PostMapping("sub5")
+    public String sub5(String name, String city, String country,
+                       RedirectAttributes rttr) {
+        int c = mapper07.insert1(name, city, country);
+
+        rttr.addFlashAttribute("message", c + "명 고객 정보 등록됨");
+        return "redirect:/main37/sub5";
+    }
+
+
+    // 새상품 등록하는 로직 작성
+    // /main37/sub6
 
 }

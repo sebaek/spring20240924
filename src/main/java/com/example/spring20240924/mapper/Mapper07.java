@@ -42,4 +42,12 @@ public interface Mapper07 {
             VALUES (#{name}, #{price})
             """)
     int insert2(String name, Double price);
+
+    @Select("""
+            SELECT CustomerId id, CustomerName name, City city, Country country
+            FROM Customers
+            ORDER BY id DESC
+            LIMIT 10
+            """)
+    List<Map<String, Object>> select2();
 }
