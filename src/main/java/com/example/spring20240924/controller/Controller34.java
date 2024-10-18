@@ -161,11 +161,19 @@ public class Controller34 {
 
         // 직원의 이름과 생일 조회/출력
         // select25, Employee
+        List<Employee> employees = mapper04.select25();
+        employees.forEach(System.out::println);
 
+        System.out.println();
         // USA에 있는 공급자의 id, 이름, 전화번호 조회/출력
         // select26, Supplier
+        mapper04.select26()
+                .forEach(System.out::println);
 
+        System.out.println();
         // 1996년 7월 주문의 주문일, 고객명 조회/출력
         // select27, Order
+        mapper04.select27()
+                .forEach(System.out::println);
     }
 }

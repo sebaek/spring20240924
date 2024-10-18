@@ -180,4 +180,25 @@ public interface Mapper04 {
             WHERE o.OrderId = 10248
             """)
     List<Map<String, Object>> select24();
+
+
+    @Select("""
+            SELECT *
+            FROM Employees
+            """)
+    List<Employee> select25();
+
+    @Select("""
+            SELECT SupplierId id, SupplierName name, phone
+            FROM Suppliers
+            WHERE Country = 'USA'
+            """)
+    List<Supplier> select26();
+
+    @Select("""
+            SELECT o.OrderDate date, o.OrderId id, c.CustomerName
+            FROM Orders o JOIN Customers c ON o.CustomerId = c.CustomerId
+            WHERE OrderDate BETWEEN '1996-07-01' AND '1996-07-31'
+            """)
+    List<Order> select27();
 }
