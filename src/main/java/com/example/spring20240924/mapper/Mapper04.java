@@ -1,7 +1,6 @@
 package com.example.spring20240924.mapper;
 
-import com.example.spring20240924.dto.c34.Customer;
-import com.example.spring20240924.dto.c34.Product;
+import com.example.spring20240924.dto.c34.*;
 import org.apache.ibatis.annotations.*;
 
 import java.time.LocalDate;
@@ -137,4 +136,25 @@ public interface Mapper04 {
             WHERE ProductId = 1
             """)
     Product select18();
+
+    @Select("""
+            SELECT FirstName firstname, LastName, BirthDate
+            FROM Employees
+            WHERE EmployeeId = 3
+            """)
+    Employee select19();
+
+    @Select("""
+            SELECT SupplierId id, SupplierName name, Phone
+            FROM Suppliers
+            WHERE SupplierId = 2
+            """)
+    Supplier select20();
+
+    @Select("""
+            SELECT OrderId id, OrderDate date, c.CustomerName
+            FROM Orders o JOIN Customers c ON o.CustomerId = c.CustomerId
+            WHERE OrderId = 10248
+            """)
+    Order select21();
 }

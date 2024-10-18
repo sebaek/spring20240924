@@ -1,7 +1,6 @@
 package com.example.spring20240924.controller;
 
-import com.example.spring20240924.dto.c34.Customer;
-import com.example.spring20240924.dto.c34.Product;
+import com.example.spring20240924.dto.c34.*;
 import com.example.spring20240924.mapper.Mapper04;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -114,11 +113,18 @@ public class Controller34 {
 
         // 3번 직원의 이름과 생일 조회/출력
         // select19, dto
+        Employee employee = mapper04.select19();
+        System.out.println("employee = " + employee);
 
         // 2번 공급자의 id, 이름, 전화번호 조회/출력
         // select20, dto
+        Supplier supplier = mapper04.select20();
+        System.out.println("supplier = " + supplier);
 
         // 10248번 주문의 주문일, 고객명 조회/출력
         // select21, dto
+        Order orders = mapper04.select21();
+        System.out.println("orders = " + orders);
+
     }
 }
