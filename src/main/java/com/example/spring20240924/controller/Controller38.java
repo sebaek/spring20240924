@@ -51,4 +51,8 @@ public class Controller38 {
     public void method5(Customer customer) {
         mapper08.update3(customer);
     }
+
+    // /main38/sub6?id=1&lastName=강인&firstName=이&birthDate=2002-02-02&photo=사진3&notes=생제르맹
+    // 요청을 보내면 1번 직원의 정보가 수정되도록
+    // 5번째 메소드, mapper의 update4, dto 만들기
 }
