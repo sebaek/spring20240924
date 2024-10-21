@@ -27,4 +27,19 @@ public interface Mapper10 {
             </script>
             """)
     Map<String, Object> select1(String name, String contact);
+
+    @Select("""
+            <script>
+            SELECT *
+            FROM Employees
+            WHERE EmployeeId = 3
+                <if test="lastName != null">
+                    AND LastName = #{lastName}
+                </if>
+                <if test="firstName != null">
+                    AND FirstName = #{firstName}
+                </if>
+            </script>
+            """)
+    Map<String, Object> select2(String lastName, String firstName);
 }

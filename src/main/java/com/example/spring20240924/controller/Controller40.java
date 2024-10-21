@@ -26,7 +26,7 @@ public class Controller40 {
         mapper10.select1(null, "def");
     }
 
-    @Getter("sub2")
+    @GetMapping("sub2")
     public void sub2() {
         // SELECT * FROM Employees
         // WHERE EmployeeId = 3
