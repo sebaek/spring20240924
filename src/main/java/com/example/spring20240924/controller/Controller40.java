@@ -1,6 +1,7 @@
 package com.example.spring20240924.controller;
 
 import com.example.spring20240924.mapper.Mapper10;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,5 +24,24 @@ public class Controller40 {
 
         System.out.println("contact 만");
         mapper10.select1(null, "def");
+    }
+
+    @Getter("sub2")
+    public void sub2() {
+        // SELECT * FROM Employees
+        // WHERE EmployeeId = 3
+        //   AND LastName = "abc"
+        //   AND FirstName = "def"
+        mapper10.select2("abc", "def");
+
+        // SELECT * FROM Employees
+        // WHERE EmployeeId = 3
+        //   AND LastName = "abc"
+        mapper10.select2("abc", null);
+
+        // SELECT * FROM Employees
+        // WHERE EmployeeId = 3
+        //   AND FirstName = "def"
+        mapper10.select2(null, "def");
     }
 }
