@@ -4,9 +4,7 @@ import com.example.spring20240924.dto.c38.Customer;
 import com.example.spring20240924.dto.c38.Employee;
 import core.app12.Bean1;
 import core.app12.Bean2;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.Map;
 
@@ -100,4 +98,13 @@ public interface Mapper08 {
         // 메소드 아규먼트가 여러개면
         // 쿼리 #{}파라미터에 빈이름을 앞에 붙여야함
     Map<String, Object> select03(Bean1 b1, Bean2 b2);
+
+    @Insert("""
+            INSERT INTO Customers
+            (CustomerName, ContactName, Address, City, PostalCode, Country)
+            VALUES (#{name}, #{contactName}, #{address}, #{city}, #{postalCode}, #{country})
+            """)
+    // 새로 입력된 레코드의 PK 얻는 어노테이션
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    int insert01(Customer customer);
 }

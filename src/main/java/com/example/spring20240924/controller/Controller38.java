@@ -87,4 +87,29 @@ public class Controller38 {
     public void method10(Employee employee) {
         mapper08.update4(employee);
     }
+
+    @GetMapping("sub11")
+    public void method11() {
+        Customer customer = new Customer();
+        customer.setName("한강");
+        customer.setContactName("노벨상");
+        customer.setPostalCode("999999");
+        customer.setCountry("한국");
+        customer.setCity("광주");
+        customer.setAddress("서울");
+
+        System.out.println("입력전" + customer);
+        mapper08.insert01(customer);
+        System.out.println("입력후" + customer);
+    }
+
+    @GetMapping("sub12")
+    public void method12() {
+        Employee employee = new Employee();
+        // employee 속성 채우기...
+
+        System.out.println("입력전" + employee);
+        mapper08.insert02(employee);
+        System.out.println("입력후" + employee);
+    }
 }
