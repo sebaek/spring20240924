@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("main40")
@@ -63,8 +65,26 @@ public class Controller40 {
 
         // SELECT * FROM Employees WHERE LastName = "abc"
         mapper10.select4("abc", null);
-        
+
         // SELECT * FROM Employees
         mapper10.select4(null, null);
+    }
+
+    @GetMapping("sub5")
+    public void sub5() {
+        // SELECT * FROM Customers
+        // WHERE Country IN ('germany', 'usa', 'uk')
+        mapper10.select5(List.of("germany", "usa", "uk"));
+
+        // SELECT * FROM Customers
+        // WHERE Country IN ('germany', 'usa')
+        mapper10.select5(List.of("germany", "usa"));
+
+        // SELECT * FROM Customers
+        // WHERE Country IN ('germany')
+        mapper10.select5(List.of("germany"));
+
+        // SELECT * FROM Customers
+        mapper10.select5(List.of());
     }
 }

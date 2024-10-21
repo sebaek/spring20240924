@@ -3,6 +3,7 @@ package com.example.spring20240924.mapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
 import java.util.Map;
 
 @Mapper
@@ -75,4 +76,17 @@ public interface Mapper10 {
             """
     )
     Object select4(String lname, String fname);
+
+    @Select("""
+             <script>
+                 SELECT * FROM Customers
+                 <trim prefix="WHERE">
+                     <foreach collection="countryList" item="country" separator=","
+                                 open="Country IN (" close=")">
+                         #{country}
+                     </foreach>
+                 </trim>
+             </script>
+            """)
+    List<Object> select5(List<String> countryList);
 }
