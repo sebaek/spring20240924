@@ -77,5 +77,14 @@ public class Controller38 {
     }
 
     // 직원정보 변경하는 코드 작성
-    
+    @GetMapping("sub9")
+    public void method9(Integer id, Model model) {
+        Employee employee = mapper08.select02(id);
+        model.addAttribute("employee", employee);
+    }
+
+    @PostMapping("sub10")
+    public void method10(Employee employee) {
+        mapper08.update4(employee);
+    }
 }

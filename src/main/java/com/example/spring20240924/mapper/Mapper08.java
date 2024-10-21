@@ -72,4 +72,16 @@ public interface Mapper08 {
             WHERE CustomerId = #{id}
             """)
     Customer select1(Integer id);
+
+    @Select("""
+            SELECT EmployeeId id,
+                   FirstName firstName,
+                   LastName lastName,
+                   BirthDate birthDate,
+                   Photo photo,
+                   Notes notes
+            FROM Employees
+            WHERE EmployeeId = #{id}
+            """)
+    Employee select02(Integer id);
 }
