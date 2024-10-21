@@ -3,6 +3,7 @@ package com.example.spring20240924.mapper;
 import com.example.spring20240924.dto.c38.Customer;
 import com.example.spring20240924.dto.c38.Employee;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 @Mapper
@@ -58,4 +59,17 @@ public interface Mapper08 {
             WHERE EmployeeId = #{id}
             """)
     int update4(Employee employee);
+
+    @Select("""
+            SELECT CustomerId id,
+                   CustomerName name,
+                   ContactName contactName,
+                   Address address,
+                   City city,
+                   PostalCode postalCode,
+                   Country country
+            FROM Customers
+            WHERE CustomerId = #{id}
+            """)
+    Customer select1(Integer id);
 }

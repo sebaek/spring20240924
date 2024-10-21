@@ -5,6 +5,7 @@ import com.example.spring20240924.dto.c38.Employee;
 import com.example.spring20240924.mapper.Mapper08;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -63,12 +64,18 @@ public class Controller38 {
     }
 
     @GetMapping("sub7")
-    public void method7() {
-
+    public void method7(Integer id, Model model) {
+        Customer customer = mapper08.select1(id);
+        if (customer != null) {
+            model.addAttribute("customer", customer);
+        }
     }
 
     @PostMapping("sub8")
-    public void method8() {
-//        mapper08.update3()
+    public void method8(Customer customer) {
+        mapper08.update3(customer);
     }
+
+    // 직원정보 변경하는 코드 작성
+    
 }
