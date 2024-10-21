@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDate;
+
 @Controller
 @RequestMapping("main38")
 @RequiredArgsConstructor
@@ -107,6 +109,11 @@ public class Controller38 {
     public void method12() {
         Employee employee = new Employee();
         // employee 속성 채우기...
+        employee.setBirthDate(LocalDate.parse("2024-10-21"));
+        employee.setLastName("손");
+        employee.setFirstName("흥민");
+        employee.setPhoto("사진77777");
+        employee.setNotes("공격수");
 
         System.out.println("입력전" + employee);
         mapper08.insert02(employee);

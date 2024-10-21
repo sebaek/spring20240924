@@ -107,4 +107,12 @@ public interface Mapper08 {
     // 새로 입력된 레코드의 PK 얻는 어노테이션
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert01(Customer customer);
+
+    @Insert("""
+            INSERT INTO Employees
+            (LastName, FirstName, BirthDate, Photo, Notes)
+            VALUES (#{lastName}, #{firstName}, #{birthDate}, #{photo}, #{notes})
+            """)
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    int insert02(Employee employee);
 }
