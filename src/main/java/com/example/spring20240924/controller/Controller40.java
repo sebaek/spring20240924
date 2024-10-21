@@ -98,8 +98,13 @@ public class Controller40 {
 
         // SELECT * FROM Suppliers WHERE City IN (?)
         mapper10.select6(List.of("seoul"));
-        
+
         // SELECT * FROM Suppliers
         mapper10.select6(List.of());
+    }
+
+    @GetMapping("sub7")
+    public void sub7() {
+        mapper10.select7();
     }
 }
