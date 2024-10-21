@@ -1,6 +1,7 @@
 package com.example.spring20240924.mapper;
 
 import com.example.spring20240924.dto.c38.Customer;
+import com.example.spring20240924.dto.c38.Employee;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Update;
 
@@ -46,4 +47,15 @@ public interface Mapper08 {
             WHERE CustomerId = #{id}
             """)
     int update3(Customer c);
+
+    @Update("""
+            UPDATE Employees
+            SET FirstName = #{firstName},
+                LastName = #{lastName},
+                BirthDate = #{birthDate},
+                Photo = #{photo},
+                Notes = #{notes}
+            WHERE EmployeeId = #{id}
+            """)
+    int update4(Employee employee);
 }

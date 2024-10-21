@@ -1,10 +1,12 @@
 package com.example.spring20240924.controller;
 
 import com.example.spring20240924.dto.c38.Customer;
+import com.example.spring20240924.dto.c38.Employee;
 import com.example.spring20240924.mapper.Mapper08;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -54,5 +56,19 @@ public class Controller38 {
 
     // /main38/sub6?id=1&lastName=강인&firstName=이&birthDate=2002-02-02&photo=사진3&notes=생제르맹
     // 요청을 보내면 1번 직원의 정보가 수정되도록
-    // 5번째 메소드, mapper의 update4, dto 만들기
+    // 6번째 메소드, mapper의 update4, dto 만들기
+    @GetMapping("sub6")
+    public void method6(Employee employee) {
+        mapper08.update4(employee);
+    }
+
+    @GetMapping("sub7")
+    public void method7() {
+
+    }
+
+    @PostMapping("sub8")
+    public void method8() {
+//        mapper08.update3()
+    }
 }
