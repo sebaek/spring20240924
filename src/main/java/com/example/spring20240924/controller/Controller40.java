@@ -44,4 +44,27 @@ public class Controller40 {
         //   AND FirstName = "def"
         mapper10.select2(null, "def");
     }
+
+    @GetMapping("sub3")
+    public void sub3() {
+        mapper10.select3("abc", "def");
+        mapper10.select3("abc", null);
+        mapper10.select3(null, "def");
+        mapper10.select3(null, null);
+    }
+
+    @GetMapping("sub4")
+    public void sub4() {
+        // SELECT * FROM Employees WHERE LastName = "abc" OR FirstName = "def"
+        mapper10.select4("abc", "def");
+
+        // SELECT * FROM Employees WHERE FirstName = "def"
+        mapper10.select4(null, "def");
+
+        // SELECT * FROM Employees WHERE LastName = "abc"
+        mapper10.select4("abc", null);
+        
+        // SELECT * FROM Employees
+        mapper10.select4(null, null);
+    }
 }

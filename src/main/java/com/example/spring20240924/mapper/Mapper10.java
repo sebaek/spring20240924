@@ -42,4 +42,20 @@ public interface Mapper10 {
             </script>
             """)
     Map<String, Object> select2(String lastName, String firstName);
+
+    @Select("""
+            <script>
+                SELECT *
+                FROM Customers
+                <trim prefix="WHERE" prefixOverrides="AND">
+                    <if test="name != null">
+                            CustomerName = #{name}
+                    </if>
+                    <if test="contact != null">
+                        AND ContactName = #{contact}
+                    </if>
+                </trim>
+            </script>
+            """)
+    Object select3(String name, String contact);
 }
