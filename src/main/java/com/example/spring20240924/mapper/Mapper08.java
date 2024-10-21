@@ -2,9 +2,13 @@ package com.example.spring20240924.mapper;
 
 import com.example.spring20240924.dto.c38.Customer;
 import com.example.spring20240924.dto.c38.Employee;
+import core.app12.Bean1;
+import core.app12.Bean2;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+
+import java.util.Map;
 
 @Mapper
 public interface Mapper08 {
@@ -84,4 +88,16 @@ public interface Mapper08 {
             WHERE EmployeeId = #{id}
             """)
     Employee select02(Integer id);
+
+    @Select("""
+            SELECT *
+            FROM Customers
+            WHERE CustomerName = #{b1.name} 
+              OR ContactName = #{b2.contactName}
+              OR CustomerID = #{b1.id}
+              OR BirthDate = #{b2.birthDate}
+            """)
+        // 메소드 아규먼트가 여러개면
+        // 쿼리 #{}파라미터에 빈이름을 앞에 붙여야함
+    Map<String, Object> select03(Bean1 b1, Bean2 b2);
 }
