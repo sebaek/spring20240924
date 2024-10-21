@@ -92,10 +92,13 @@ public class Controller40 {
     public void sub6() {
         // SELECT * FROM Suppliers WHERE City IN (?, ?, ?)
         mapper10.select6(List.of("seoul", "busan", "jeju"));
+
         // SELECT * FROM Suppliers WHERE City IN (?, ?)
         mapper10.select6(List.of("seoul", "busan"));
+
         // SELECT * FROM Suppliers WHERE City IN (?)
         mapper10.select6(List.of("seoul"));
+        
         // SELECT * FROM Suppliers
         mapper10.select6(List.of());
     }

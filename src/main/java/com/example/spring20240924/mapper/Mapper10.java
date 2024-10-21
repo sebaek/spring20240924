@@ -89,4 +89,18 @@ public interface Mapper10 {
              </script>
             """)
     List<Object> select5(List<String> countryList);
+
+
+    @Select("""
+            <script>
+                SELECT * FROM Suppliers
+                <trim prefix="WHERE">
+                    <foreach collection="cityList" item="city" 
+                        separator=", " open="City IN (" close=")">
+                        #{city}
+                    </foreach>
+                </trim>
+            </script>
+            """)
+    List<Object> select6(List<String> cityList);
 }
