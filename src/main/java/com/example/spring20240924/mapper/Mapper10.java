@@ -58,4 +58,21 @@ public interface Mapper10 {
             </script>
             """)
     Object select3(String name, String contact);
+
+    @Select("""
+            <script>
+            SELECT * 
+            FROM Employees 
+                <trim prefix="WHERE" prefixOverrides="OR">
+                    <if test="lname != null">
+                        LastName = "abc"
+                    </if>
+                    <if test="fname != null">
+                        OR FirstName = "def"
+                    </if>
+                </trim>
+            </script>
+            """
+    )
+    Object select4(String lname, String fname);
 }
