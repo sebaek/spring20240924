@@ -1,0 +1,54 @@
+package com.example.spring20240924.controller;
+
+import com.example.spring20240924.dto.c38.Customer;
+import com.example.spring20240924.mapper.Mapper08;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("main38")
+@RequiredArgsConstructor
+public class Controller38 {
+    private final Mapper08 mapper08;
+
+    @GetMapping("sub1")
+    public void method1() {
+        mapper08.update1();
+    }
+
+    @GetMapping("sub2")
+    public void method2() {
+        mapper08.update2("흥민", "득점왕", "토트넘",
+                "런던", "3333", "영국", 2);
+    }
+
+    @GetMapping("sub3")
+    public void method3() {
+        Customer customer = new Customer();
+        customer.setId(2);
+        customer.setName("카카");
+        customer.setContactName("아이콘");
+        customer.setAddress("리우");
+        customer.setCity("상파울로");
+        customer.setCountry("브라질");
+        customer.setPostalCode("5555");
+        mapper08.update3(customer);
+    }
+
+    // /main38/sub4?name=지성&contactName=코치&address=신촌&city=서울&country=한국&postalCode=777&id=2
+    @GetMapping("sub4")
+    public void method4(String name, String contactName,
+                        String address, String city,
+                        String country, String postalCode,
+                        Integer id) {
+        mapper08.update2(name, contactName, address, city, postalCode, country, id);
+    }
+
+    // /main38/sub5?name=정환&contactName=포워드&address=강남&city=인천&country=한국&postalCode=999&id=2
+    @GetMapping("sub5")
+    public void method5(Customer customer) {
+        mapper08.update3(customer);
+    }
+}
