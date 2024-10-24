@@ -52,4 +52,12 @@ public class Controller41 {
     @GetMapping("sub11")
     public void sub11() {
     }
+
+    @GetMapping("sub12")
+    public void sub12() {
+    }
+
+    @GetMapping("sub13")
+    public void sub13() {
+    }
 }
