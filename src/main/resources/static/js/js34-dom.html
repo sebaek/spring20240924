@@ -60,6 +60,22 @@
   a.before(d);
 
 
+  let f = document.querySelector("#box2 > ul")
+  console.log(f)
+
+  let g = document.createElement("h2");
+  g.innerHTML = "hello";
+  let h = document.createElement("p");
+  h.innerHTML = "world";
+  let i = document.createElement("li");
+  i.innerHTML = "hi";
+  let j = document.createElement("li");
+  j.innerHTML = "dom";
+
+  f.before(g);
+  f.after(h);
+  f.prepend(i);
+  f.append(j);
 </script>
 </body>
 </html>
