@@ -10,9 +10,30 @@
     +
 </button>
 
+<button id="btn2">
+    -
+</button>
+
 <div>
     <ul id="list1"></ul>
 </div>
+<script>
+  document.querySelector("#btn1")
+    .addEventListener("click", function () {
+      let v = document.querySelector("#input1").value;
+      let li = document.createElement("li");
+      li.innerText = v;
 
+      document.querySelector("#list1").append(li);
+
+      document.querySelector("#input1").value = "";
+      document.querySelector("#input1").focus();
+    });
+
+  document.querySelector("#btn2")
+    .addEventListener("click", function () {
+      document.querySelector("#list1 > li:last-child").remove();
+    });
+</script>
 </body>
 </html>
