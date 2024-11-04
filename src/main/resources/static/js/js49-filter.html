@@ -5,6 +5,9 @@
     <title>Title</title>
 </head>
 <body>
+<input type="text" id="input1">
+<button id="btn1">찾기</button>
+<button id="btn2">리셋</button>
 
 <ul id="box"></ul>
 
@@ -20,6 +23,13 @@
     "Delectus fugiat praesentium quis rerum! Cumque eligendi molestias nostrum! Laudantium!",
     "Animi asperiores consectetur corporis harum in ipsum laborum quibusdam similique?",
     "Aliquam commodi dolores doloribus esse ipsam iste nesciunt veritatis voluptate."]
+
+  const box = document.querySelector("#box");
+  arr.forEach(str => {
+    const li = document.createElement("li");
+    li.innerText = str;
+    box.append(li);
+  })
 
 </script>
 </body>
