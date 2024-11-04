@@ -29,7 +29,28 @@
 
   // 연습
   let b = ["son", "lee", "faker", "kim"];
-  
+  // forEach 메소드 사용해서 모든 아이템 출력
+  b.forEach((v) => {
+    console.log(v)
+  })
+
+  console.log("for ##########")
+  for (let i = 0; i < b.length; i++) {
+    console.log(i, b[i]);
+  }
+
+  console.log("forEach ######")
+  b.forEach((v, i) => {
+    console.log(i, v);
+  });
+
+  // 연습
+  let c = ["kim", "lee", "choi", "son"]
+  // 아래와 같은 출력 코드 작성
+  // 1 kim
+  // 2 lee
+  // 3 choi
+  // 4 son
 </script>
 </body>
 </html>
