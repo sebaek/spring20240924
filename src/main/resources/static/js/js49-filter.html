@@ -31,6 +31,29 @@
     box.append(li);
   })
 
+  // document.querySelector("#btn1").addEventListener("click", () => {
+  document.querySelector("#input1").addEventListener("keyup", () => {
+    const keyword = document.querySelector("#input1").value;
+    const filtered = arr.filter((str) => str.toLowerCase().includes(keyword));
+
+    document.querySelectorAll("#box > li").forEach(e => e.remove());
+    filtered.forEach(str => {
+      const li = document.createElement("li");
+      li.innerText = str;
+      box.append(li);
+    })
+  });
+
+  document.querySelector("#btn2").addEventListener("click", () => {
+    document.querySelectorAll("#box > li").forEach(e => e.remove());
+    arr.forEach(str => {
+      const li = document.createElement("li");
+      li.innerText = str;
+      box.append(li);
+    })
+    document.querySelector("#input1").value = "";
+  })
+
 </script>
 </body>
 </html>
