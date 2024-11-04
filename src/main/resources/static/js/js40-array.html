@@ -58,12 +58,45 @@
   let e = ["h"];
 
   // 코드작성
+  // e.push("e");
+  // e.push("l");
+  // e.push("l");
+  // e.push("o");
+  e.push("e", "l", "l", "o");
 
   console.log(e); // ["h", "e", "l", "l", "o"]
 
   // 코드작성
-  
+  e.pop();
+  e.pop();
+  e.pop();
+
   console.log(e); // ["h", "e"]
+
+  // shift : 앞의 아이템 삭제(꺼내기)
+  let f = [10, 20, 30, 40, 50];
+  f.shift();
+  console.log(f);
+  let i2 = f.shift();
+  console.log(i2); // 20
+  console.log(f); // [30, 40, 50]
+
+  // unshift : 앞에 아이템 추가
+  f.unshift(22);
+  console.log(f); // [22, 30, 40, 50]
+  f.unshift(11, 0, 1, 2, 3);
+  console.log(f); //
+
+  // 연습
+  let g = [];
+
+  // 코드 작성 unshift 사용
+
+  console.log(g); // ["w", "o", "r", "l", "d"];
+
+  // 코드 작성 shift 사용
+
+  console.log(g); // ["l", "d"];
 
 
 </script>
