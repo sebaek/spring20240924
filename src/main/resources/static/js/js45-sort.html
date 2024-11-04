@@ -44,8 +44,25 @@
   console.log(b);
 
   // 코드 작성
-
+  b.sort((n1, n2) => {
+    if (n1 > n2) {
+      return -1;
+    } else if (n2 > n1) {
+      return 1;
+    } else {
+      return 0;
+    }
+  })
   console.log(b); // son, lee, kim, faker, cha
+
+
+  let c = ["son", "LEE", "KIM", "faker", "cha"];
+  console.log(c);
+  c.sort();
+  console.log(c)
+
+  //코드 작성
+  console.log(c); // cha, faker, KIM, LEE, son
 </script>
 </body>
 </html>
