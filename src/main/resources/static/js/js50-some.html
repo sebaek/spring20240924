@@ -17,8 +17,8 @@
   // 연습
   let b = ["son heung min", "faker", "LeeKangIn"];
 
-  // b의 아이템에 빈문자가 있는 것이 있는가?
-  const r3 = a.some();
+  // b의 아이템에 공백문자가 있는 것이 있는가?
+  const r3 = b.some(e => e.includes(" "));
   console.log(r3); // true
 </script>
 </body>
