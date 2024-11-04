@@ -20,7 +20,9 @@
 
   // 코드 작성
   let f3 = b.find(e => e < 0)
-  
+  let f4 = b.find(e => e >= 10);
+  let f5 = b.find(e => 10 < e);
+  let f6 = b.find(e => e % 11 === 0);
 
   console.log(f3); // -2 (첫번째 발견되는 음수)
   console.log(f4); // 10 (첫번째 발견되는 10이상의 수)
