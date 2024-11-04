@@ -28,9 +28,24 @@
   // 코드 작성
 
   // 세글자인 아이템만 출력
+  const f5 = b.filter(e => e.length === 3);
+  console.log(f5)
   // 4글자 이상인 아이템만 출력
+  const f6 = b.filter(e => e.length >= 4);
+  console.log(f6)
   // 홀수 글자 수인 아이템만 출력
-  
+  console.log(b.filter(e => e.length % 2 === 1));
+
+  //
+  // 세글자인 아이템만 출력 (for문 사용)
+  const f7 = [];
+  for (let i = 0; i < b.length; i++) {
+    if (b[i].length === 3) {
+      f7.push(b[i]);
+    }
+  }
+  console.log(f7)
+
 
 </script>
 </body>
