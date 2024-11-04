@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body>
+<!--p*5>lorem1-->
+<p>Lorem.</p>
+<p>Iste?</p>
+<p>Accusantium!</p>
+<p>Aspernatur.</p>
+<p>Nobis.</p>
 
 <script>
   // for, for of
@@ -51,6 +57,22 @@
   // 2 lee
   // 3 choi
   // 4 son
+  console.log("연습@######")
+  c.forEach((value, index) => {
+    console.log(index + 1, value);
+  });
+
+  //
+  let paras = document.querySelectorAll("p");
+  paras.forEach((elem, index) => {
+    console.log(index, elem.innerHTML);
+  });
+
+  paras.forEach((elem) => {
+    elem.addEventListener("click", () => {
+      console.log(elem.innerHTML);
+    })
+  })
 </script>
 </body>
 </html>
