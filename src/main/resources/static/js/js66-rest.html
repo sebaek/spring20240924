@@ -24,10 +24,46 @@
 
   // 연습
   const d = ["donald", "harris", "rose", "son"];
+  const [x1, x2, ...s] = d;
 
   console.log(x1); // donald
   console.log(x2); // harris
   console.log(s); // [rose, son]
+
+
+  // object
+  const e = {name: "donald", city: "ny", country: "us", height: 200};
+  const {name, city, country, height} = e;
+  console.log(name, city, country, height);
+
+  const f = {
+    nick: "harris",
+    address: "chicago",
+    country: "us",
+    weight: 200
+  };
+  const {nick, address, ...g} = f;
+  console.log(nick)
+  console.log(address)
+  console.log(g);
+  console.log(g.country)
+  console.log(g.weight)
+
+  //연습
+  const h = {
+    team: "t1",
+    married: true,
+    title: "소년이",
+    content: "518"
+  }
+  // 코드 작성
+
+  console.log(team); // t1
+  console.log(i.married); // true
+  console.log(i.title); // 소년이
+  console.log(i.content); // 518
+
+
 </script>
 </body>
 </html>
