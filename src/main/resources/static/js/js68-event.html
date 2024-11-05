@@ -21,7 +21,8 @@
     <input type="text" id="input2">
 </div>
 <div>
-    <input type="text" id="input3">
+    <input type="text" id="input3"
+           onkeyup="console.log(document.querySelector(`#input3`).value)">
 </div>
 <div>
     <input type="text" id="input4">
@@ -29,7 +30,12 @@
 <div>
     <input type="text" id="input5">
 </div>
-
+<div>
+    <input type="text" id="input6">
+</div>
+<div>
+    <input type="text" id="input7">
+</div>
 <script>
   // event listener 정의
   // addEventListener
@@ -48,14 +54,39 @@
   // 연습
   // input1 에 keyup 이벤트 발생시 input에 입력된 값을 console에 출력
   // addEventListener
+  document.querySelector("#input1")
+    .addEventListener("keyup", () => {
+      console.log(document.querySelector("#input1").value);
+    })
 
   // input2 에 keyup 이벤트 발생시 input에 입력된 값을 console에 출력
   // onkeyup property
+  document.querySelector("#input2").onkeyup = () => {
+    console.log(document.querySelector("#input2").value);
+  }
 
   // input3 에 keyup 이벤트 발생시 input에 입력된 값을 console에 출력
   // onkeyup attribute
 
+  // input4, input5
+  const inputList = document.querySelectorAll("#input4, #input5");
+  for (const elem of inputList) {
+    elem.addEventListener("keyup", () => {
+      console.log(elem.value);
+    });
+  }
 
+  // input6, input7
+  function fun1(e) {
+    // console.log(param); // event 객체
+    // console.log("value");
+    console.log(e.target.value);
+  }
+
+  document.querySelector("#input6")
+    .addEventListener("keyup", fun1);
+  document.querySelector("#input7")
+    .addEventListener("keyup", fun1);
 </script>
 </body>
 </html>
