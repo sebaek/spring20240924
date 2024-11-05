@@ -23,6 +23,26 @@
     "Animi asperiores consectetur corporis harum in ipsum laborum quibusdam similique?",
     "Aliquam commodi dolores doloribus esse ipsam iste nesciunt veritatis voluptate."]
 
+  function App() {
+    const [texts, setTexts] = React.useState(arr);
+
+    function handleKeyUp(e) {
+      const keyword = e.target.value;
+      setTexts(arr.filter(item => item.toLowerCase()
+        .includes(keyword.toLowerCase())));
+    }
+
+    return <div>
+      <input type="text" onKeyUp={handleKeyUp}/>
+      <ul>
+        {texts.map((text) => <li>{text}</li>)}
+      </ul>
+    </div>
+
+  }
+
+  ReactDOM.createRoot(document.querySelector("#root"))
+    .render(<App/>);
 </script>
 </body>
 </html>
