@@ -55,6 +55,10 @@
   const e = {city: "london", age: 33, email: "gmail"};
 
   // e를 f에 얕은 복사
+  const f = {};
+  for (const property in e) {
+    f[property] = e[property];
+  }
 
   f.city = "seoul";
   console.log(e); // {city: "london", age: 33, email: "gmail"}
