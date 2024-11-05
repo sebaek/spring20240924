@@ -36,6 +36,14 @@
 <div>
     <input type="text" id="input7">
 </div>
+<hr>
+<!--p*5>lorem3-->
+<p>Lorem ipsum dolor.</p>
+<p>Adipisci, asperiores, sapiente!</p>
+<p>Aperiam, sequi veniam!</p>
+<p>Aspernatur, quisquam ut.</p>
+<p>Ea, iste suscipit.</p>
+
 <script>
   // event listener 정의
   // addEventListener
@@ -87,6 +95,16 @@
     .addEventListener("keyup", fun1);
   document.querySelector("#input7")
     .addEventListener("keyup", fun1);
+
+  // 연습 코드 작성
+  function fun2(e) {
+    console.log(e.target.innerHTML);
+  }
+
+  // document.querySelectorAll("p")
+  //   .forEach(elem => elem.onclick = fun2);
+  document.querySelectorAll("p")
+    .forEach(elem => elem.addEventListener("click", fun2));
 </script>
 </body>
 </html>
