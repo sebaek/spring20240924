@@ -13,6 +13,15 @@ import java.util.Map;
 @RequestMapping("/api/main1")
 @Controller
 public class ApiController1 {
+    @PostMapping("sub9")
+    public void sub9(@RequestBody List<Map<String, Object>> list) {
+        // [{product: {name: computer, price: 500}, company: samsung},
+        // {product: {name: smart phone, price: 1000}, company: apple},
+        // {product: {name: graphic card, price: 2000}, company: nvidia }]
+
+        System.out.println(list);
+    }
+
     @PostMapping("sub8")
     public void sub8(@RequestBody List<Map<String, Object>> list) {
         System.out.println(list);
