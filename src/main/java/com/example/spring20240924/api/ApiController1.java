@@ -13,10 +13,18 @@ import java.util.Map;
 @Controller
 public class ApiController1 {
 
+    @PostMapping("sub4")
+    public void sub4(@RequestBody Map<String, Object> map) {
+
+        // {title: 책제목, content: 책내용, price: 5000}
+        System.out.println(map);
+
+    }
+
     @PostMapping("sub3")
     public void sub3(@RequestBody Map<String, String> map) {
         System.out.println(map);
-        
+
     }
 
     // @RequestBody : JSON -> Map(JavaBeans)로 파싱해줌
