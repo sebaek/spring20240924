@@ -1,5 +1,6 @@
 package com.example.spring20240924.api;
 
+import com.example.spring20240924.dto.a5.Book;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,18 @@ import java.util.Map;
 @RequestMapping("/api/main5")
 @Controller
 public class ApiController5 {
+    @GetMapping("sub8")
+    @ResponseBody
+    public Book sub8() {
+        Book book = new Book();
+        book.setPrice(50000);
+        book.setAuthor("한강");
+        book.setContent("소설");
+        book.setTitle("제목");
+
+        return book;
+    }
+
     @GetMapping("sub7")
     @ResponseBody
     public Map<String, Object> sub7() {
