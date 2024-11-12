@@ -11,6 +11,15 @@ import java.util.Map;
 @RequestMapping("/api/main5")
 @Controller
 public class ApiController5 {
+    @GetMapping("sub7")
+    @ResponseBody
+    public Map<String, Object> sub7() {
+
+        return Map.of("product", Map.of("name", "컴퓨터",
+                        "price", 500,
+                        "quantity", 10),
+                "company", Map.of("location", List.of("서울", "부산")));
+    }
 
     @GetMapping("sub6")
     @ResponseBody
