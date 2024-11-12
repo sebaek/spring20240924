@@ -8,6 +8,15 @@ import java.util.Map;
 @Controller
 @RequestMapping("/api/main3")
 public class ApiController3 {
+    @DeleteMapping("sub8")
+    public void sub8(@RequestBody Map<String, Object> map) {
+        System.out.println(map);
+    }
+
+    @PutMapping("sub7")
+    public void sub7(@RequestBody Map<String, Object> map) {
+        System.out.println(map);
+    }
 
     @DeleteMapping("sub6")
     public void sub6(@RequestBody Map<String, Object> map) {
