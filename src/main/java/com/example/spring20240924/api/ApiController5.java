@@ -1,6 +1,8 @@
 package com.example.spring20240924.api;
 
 import com.example.spring20240924.dto.a5.Book;
+import com.example.spring20240924.dto.a5.Company;
+import com.example.spring20240924.dto.a5.Member;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,23 @@ import java.util.Map;
 @RequestMapping("/api/main5")
 @Controller
 public class ApiController5 {
+    @GetMapping("sub9")
+    @ResponseBody
+    public Member sub9() {
+
+        Company company = new Company();
+        company.setName("토트넘");
+        company.setLocation("런던");
+
+        Member member = new Member();
+        member.setName("흥민");
+        member.setAddress("서울");
+        member.setMarried(true);
+        member.setCompany(company);
+        member.setItems(List.of("공", "신발", "유니폼"));
+        return member;
+    }
+
     @GetMapping("sub8")
     @ResponseBody
     public Book sub8() {
