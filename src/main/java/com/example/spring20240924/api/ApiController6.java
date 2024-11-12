@@ -16,6 +16,7 @@ public class ApiController6 {
     private final Service6 service;
 
     @GetMapping("sub2/{supplierId}")
+    @ResponseBody
     public Supplier getSupplier(@PathVariable Integer supplierId) {
         return service.getSupplier(supplierId);
     }
