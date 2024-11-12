@@ -21,6 +21,15 @@ public class ApiController6 {
 
     @GetMapping("sub1/{customerId}")
     public Customer get(@PathVariable Integer customerId) {
+
+        if (customerId % 2 == 0) {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
         return service.getCustomer(customerId);
     }
 }
