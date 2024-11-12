@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/api/main5")
 @Controller
 public class ApiController5 {
+    @GetMapping("sub3")
+    public String method3() {
+
+        return "seoul";
+    }
+
     @GetMapping("sub1")
     @ResponseBody
     public String method1() {
