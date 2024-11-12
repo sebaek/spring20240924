@@ -14,6 +14,11 @@ import java.util.*;
 @Controller
 @RequestMapping("/api/main2")
 public class ApiController2 {
+    @PostMapping("sub7")
+    public void method7(@RequestBody List<Book> books) {
+        System.out.println(books);
+    }
+
     @PostMapping("sub6")
     public void method6(@RequestBody List<Person> people) {
         System.out.println(people);
