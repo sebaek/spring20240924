@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/main7")
 public class ApiController7 {
@@ -54,6 +56,35 @@ public class ApiController7 {
     public ResponseEntity sub8() {
         ResponseEntity response
                 = ResponseEntity.noContent().build();
+        return response;
+    }
+
+    @GetMapping("sub9")
+    public ResponseEntity sub9() {
+        ResponseEntity response
+                = ResponseEntity.status(405).build();
+        return response;
+    }
+
+    @GetMapping("sub10")
+    public ResponseEntity sub10() {
+        ResponseEntity response
+                = ResponseEntity.status(202).build();
+        return response;
+    }
+
+    @GetMapping("sub11")
+    public ResponseEntity sub11() {
+        ResponseEntity response
+                = ResponseEntity.status(403).build();
+        return response;
+    }
+
+    @GetMapping("sub12")
+    public ResponseEntity sub12() {
+        ResponseEntity response
+                = ResponseEntity.status(405)
+                .body(Map.of("name", "son", "age", 30));
         return response;
     }
 }
