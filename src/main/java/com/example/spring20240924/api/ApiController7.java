@@ -1,5 +1,6 @@
 package com.example.spring20240924.api;
 
+import com.example.spring20240924.dto.a6.Customer;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -81,10 +82,34 @@ public class ApiController7 {
     }
 
     @GetMapping("sub12")
-    public ResponseEntity sub12() {
+    public ResponseEntity<Map<String, Object>> sub12() {
         ResponseEntity response
                 = ResponseEntity.status(405)
                 .body(Map.of("name", "son", "age", 30));
         return response;
+    }
+
+    @GetMapping("sub13")
+    public ResponseEntity<Customer> sub13() {
+        ResponseEntity response
+                = ResponseEntity.ok()
+                .body(new Customer());
+        return response;
+    }
+
+    @GetMapping("sub14")
+    public ResponseEntity<Object> sub14() {
+        boolean good = true;
+        if (good) {
+            ResponseEntity response
+                    = ResponseEntity.ok()
+                    .body(new Customer());
+            return response;
+        } else {
+            ResponseEntity response
+                    = ResponseEntity.status(404)
+                    .body(Map.of("name", "son", "age", 30));
+            return response;
+        }
     }
 }
