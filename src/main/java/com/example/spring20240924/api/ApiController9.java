@@ -2,6 +2,8 @@ package com.example.spring20240924.api;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.Instant;
+import java.util.Collection;
 
 @RestController
 @RequiredArgsConstructor
@@ -17,6 +20,16 @@ import java.time.Instant;
 public class ApiController9 {
 
     final JwtEncoder jwtEncoder;
+
+    @GetMapping("sub10")
+    public String sub10(Authentication authentication) {
+        String name = authentication.getName(); // 사용자 이름
+        Collection authorities = authentication.getAuthorities();// 권한 목록
+        System.out.println("name = " + name);
+        System.out.println("authorities = " + authorities);
+
+        return null;
+    }
 
     @GetMapping("sub9")
     @PreAuthorize("hasAnyAuthority('SCOPE_manager', 'SCOPE_admin')")
